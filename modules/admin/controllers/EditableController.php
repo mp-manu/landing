@@ -31,55 +31,55 @@ use yii\web\Controller;
 
 class EditableController extends Controller
 {
-    public function actions()
-    {
-        return [
-            'change-about-me-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => AboutMe::className(),
-            ],
-            'change-cv-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => CV::className(),
-            ],
-            'change-contact-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => Contact::className(),
-            ],
-            'change-post-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => Blog::className(),
-            ],
-            'change-page-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => Pages::className(),
-            ],
-            'change-setting-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => SettingSearch::className(),
-            ],
-            'change-user-menu-nodeaccess' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => FrontMenu::className(),
-            ],
-            'change-admin-menu-nodeaccess' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => BackMenu::className(),
-            ],
-            'change-profiles-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => Profiles::className(),
-            ],
-            'change-category-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => Category::className(),
-            ],
-            'change-book-status' => [
-                'class' => EditableColumnAction::classname(),
-                'modelClass' => MyBooks::className(),
-            ]
-        ];
-    }
+//    public function actions()
+//    {
+//        return [
+//            'change-about-me-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => AboutMe::className(),
+//            ],
+//            'change-cv-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => CV::className(),
+//            ],
+//            'change-contact-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => Contact::className(),
+//            ],
+//            'change-post-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => Blog::className(),
+//            ],
+//            'change-page-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => Pages::className(),
+//            ],
+//            'change-setting-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => SettingSearch::className(),
+//            ],
+//            'change-user-menu-nodeaccess' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => FrontMenu::className(),
+//            ],
+//            'change-admin-menu-nodeaccess' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => BackMenu::className(),
+//            ],
+//            'change-profiles-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => Profiles::className(),
+//            ],
+//            'change-category-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => Category::className(),
+//            ],
+//            'change-book-status' => [
+//                'class' => EditableColumnAction::classname(),
+//                'modelClass' => MyBooks::className(),
+//            ]
+//        ];
+//    }
 
     public function actionChangeCommentStatus(){
         $id = Html::encode($_GET['id']);

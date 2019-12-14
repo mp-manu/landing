@@ -6,6 +6,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'defaultRoute' => '/main/index/',
     'bootstrap' => ['log',
         [
             'class' => 'app\components\LanguageSelector',
@@ -61,16 +62,42 @@ $config = [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
                 ],
+                'yii2mod.rbac' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/rbac/messages',
+                ],
+                'yii2mod.settings' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/settings/messages',
+                ],
             ],
         ],
         'settings' => [
             'class' => 'app\components\Settings',
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user', 'admin'],
         ],
     ],
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\AdminModule',
         ],
+        'rbac' => [
+            'class' => 'yii2mod\rbac\Module',
+            'layout' => '@app/modules/admin/views/layouts/main',
+            'as access' => [
+                'class' => yii2mod\rbac\filters\AccessControl::className()
+            ],
+        ],
+    ],
+    'as access' => [
+        'class' => yii2mod\rbac\filters\AccessControl::className(),
+        'allowActions' => [
+            'main/*',
+            'admin/main/login',
+        ]
     ],
     'params' => $params,
 ];

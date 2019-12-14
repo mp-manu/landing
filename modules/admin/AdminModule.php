@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\admin;
+use app\widgets\AdminMenu;
 
 /**
  * admin module definition class
@@ -23,8 +24,15 @@ class AdminModule extends \yii\base\Module
 
     public function init()
     {
-        parent::init();
-        \Yii::$app->errorHandler->errorAction = '/admin/main/login';
-        \Yii::$app->user->loginUrl = '/admin/main/login';
+       parent::init();
+
+
+       \Yii::$app->view->params['AdminMenu'] = AdminMenu::getMenu();
+       \Yii::$app->errorHandler->errorAction = '/admin/main/error';
+       \Yii::$app->user->loginUrl = '/admin/main/login';
+       //\Yii::$app->view->params['commentCount'] = Comment::find()->where(['is_published' => 'no'])->count();
+       //\Yii::$app->view->params['messageCount'] = UserMessage::find()->where(['status' => 0])->count();
+       //\Yii::$app->view->params['subcribersCount'] = Subcribers::find()->where(['status' => 0])->count();
+       //\Yii::$app->view->params['avatar'] = User::find()->select(['avatar'])->where(['user_id' => \Yii::$app->user->id])->asArray()->one();
     }
 }
