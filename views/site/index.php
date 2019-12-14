@@ -115,9 +115,9 @@ $this->title = 'Home Page';
                     <ul class="row">
                         <li class="col-md-3">
                             <div class="wm-courses-popular-wrap">
-                                <figure> <a href="#"><img src="extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                <figure> <a href="#"><img src="/extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                     <figcaption>
-                                        <img src="extra-images/papular-courses-thumb-1.jpg" alt="">
+                                        <img src="/extra-images/papular-courses-thumb-1.jpg" alt="">
                                         <h6><a href="#">Shelly T. Forrester</a></h6>
                                     </figcaption>
                                 </figure>
@@ -566,11 +566,8 @@ $this->title = 'Home Page';
 <div class="wm-main-section wm-contact-full">
     <div class="container">
         <div class="row">
-
             <div class="col-md-12">
-
                 <div class="wm-contact-tab">
-
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#home" aria-controls="home" data-toggle="tab">Contact Us</a></li>
@@ -581,8 +578,7 @@ $this->title = 'Home Page';
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
                             <div class="row">
-                                <div class="col-md-4"> <div class="wm-map"> <div id="map"></div> </div> </div>
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <div class="wm-contact-form">
                                         <span>Talk To Us Today</span>
                                         <form>

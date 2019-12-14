@@ -15,7 +15,12 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <div class="wm-language"> <ul> <li><a href="#">English</a></li> <li><a href="#">español</a></li> </ul> </div>
+               <div class="wm-language">
+                   <ul>
+                       <li><a href="#">English</a></li>
+                       <li><a href="#">español</a></li>
+                   </ul>
+               </div>
                <ul class="wm-stripinfo">
                   <li><i class="wmicon-location"></i> 2925 Swick Hill Street, Charlotte, NC 28202</li>
                   <li><i class="wmicon-technology4"></i> +1 984-700-7129</li>
@@ -170,7 +175,6 @@
                   </div>
                </nav>
                <!--// Navigation \\-->
-               <a href="#" class="wm-header-btn">get started</a>
             </div>
          </div>
       </div>

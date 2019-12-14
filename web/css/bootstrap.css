@@ -7064,7 +7064,7 @@ button.close {
 }
 .rating-box:before {
   content: "\f111 \f111 \f111";
-  color: #b99663;
+  color: #FFCC00;
 }
 .rating-box {
   height: 13px;

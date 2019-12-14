@@ -6,7 +6,12 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log',
+        [
+            'class' => 'app\components\LanguageSelector',
+            'supportedLanguages' => ['en-US'],
+        ]
+        ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -45,6 +50,21 @@ $config = [
             'showScriptName' => false,
             'rules' => [
             ],
+        ],
+        'i18n' => [
+            'translations' => [
+                'frontend*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+                'backend*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+            ],
+        ],
+        'settings' => [
+            'class' => 'app\components\Settings',
         ],
     ],
     'modules' => [
