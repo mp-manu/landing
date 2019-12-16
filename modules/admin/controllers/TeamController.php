@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\ModelStatus;
 use Yii;
 use app\models\Team;
 use app\modules\admin\models\TeamSearch;
@@ -66,8 +67,15 @@ class TeamController extends Controller
     {
         $model = new Team();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+           ModelStatus::setTimeStampCreate($model);
+           if($model->save()){
+              ModelStatus::setNotifySuccesSaved();
+              return $this->redirect(['index']);
+           }else{
+              ModelStatus::setNotifyErrorSaved();
+           }
+
         }
 
         return $this->render('create', [
@@ -86,9 +94,16 @@ class TeamController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+       if ($model->load(Yii::$app->request->post())) {
+          ModelStatus::setTimeStampCreate($model);
+          if($model->save()){
+             ModelStatus::setNotifySuccesSaved();
+             return $this->redirect(['index']);
+          }else{
+             ModelStatus::setNotifyErrorSaved();
+          }
+
+       }
 
         return $this->render('update', [
             'model' => $model,

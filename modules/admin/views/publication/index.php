@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'title',
-            'description:ntext',
+//            'description:ntext',
             [
                 'class' => 'kartik\grid\EditableColumn',
                 'attribute' => 'status',

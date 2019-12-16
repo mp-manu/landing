@@ -55,4 +55,9 @@ class EventCategories extends \yii\db\ActiveRecord
             'updated_by' => 'Updated By',
         ];
     }
+
+
+    public static function getItems(){
+       return static::find()->where(['status' => 1])->asArray()->all();
+    }
 }

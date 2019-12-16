@@ -10,26 +10,26 @@ use yii\widgets\ActiveForm;
 
 <div class="event-categories-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+   <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class="col-md-12">
+           <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        </div>
+        <div class="col-md-12">
+           <?= $form->field($model, 'description')->textarea(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+           <?= $form->field($model, 'status')->dropDownList(\app\modules\admin\models\ModelStatus::listData()) ?>
+        </div>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <div class="form-group">
+       <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
+
+   <?php ActiveForm::end(); ?>
 
 </div>

@@ -34,12 +34,11 @@ class Team extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'university', 'person', 'project_id'], 'required'],
+            [['university', 'person', 'project_id'], 'required'],
             [['id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by', 'project_id'], 'integer'],
             [['university'], 'string', 'max' => 800],
             [['person'], 'string', 'max' => 500],
             [['responsibility'], 'string', 'max' => 255],
-            [['id'], 'unique'],
         ];
     }
 

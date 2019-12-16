@@ -1,6 +1,8 @@
 <?php
 
+use app\models\EventCategories;
 use app\modules\admin\models\ModelStatus;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -17,7 +19,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'category_id')->textInput() ?>
+            <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(EventCategories::getItems(), 'id', 'name')) ?>
         </div>
     </div>
     <div class="row">
@@ -31,10 +33,7 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <?= $form->field($model, 'photo')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>
     </div>
@@ -54,7 +53,9 @@ use yii\widgets\ActiveForm;
             ]); ?>
         </div>
     </div>
-
+    <div class="col-md-6">
+       <?= $form->field($model, 'photo')->fileInput(['maxlength' => true]) ?>
+    </div>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

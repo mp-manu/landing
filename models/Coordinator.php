@@ -19,6 +19,7 @@ use Yii;
  * @property string|null $org_contact
  * @property string|null $type
  * @property string|null $country_flag
+ * @property int|null $status
  * @property int|null $created_at
  * @property int|null $created_by
  * @property int|null $updated_at
@@ -40,8 +41,8 @@ class Coordinator extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['unversity', 'country', 'address'], 'required'],
-            [['project_id', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
+            [['unversity', 'country', 'address', 'project_id'], 'required'],
+            [['project_id', 'created_at', 'created_by', 'updated_at', 'updated_by', 'status'], 'integer'],
             [['eu_contribution'], 'number'],
             [['type'], 'string'],
             [['unversity', 'address', 'activity_type', 'web_site', 'org_contact'], 'string', 'max' => 800],
@@ -60,7 +61,7 @@ class Coordinator extends \yii\db\ActiveRecord
             'country' => 'Country',
             'address' => 'Address',
             'activity_type' => 'Activity Type',
-            'project_id' => 'Project ID',
+            'project_id' => 'Project',
             'logo' => 'Logo',
             'eu_contribution' => 'Eu Contribution',
             'web_site' => 'Web Site',

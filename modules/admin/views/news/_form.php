@@ -38,7 +38,12 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'publish_date')->textInput() ?>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" name="publish_date" data-date-format="yyyy-mm-dd">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
             <?= $form->field($model, 'status')->dropDownList(\app\modules\admin\models\ModelStatus::listData()) ?>

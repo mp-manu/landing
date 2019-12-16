@@ -41,6 +41,25 @@ class ModelStatus
       'dribbble' => 'Dribbble'
    ];
 
+   public static $flags = [
+       'ie' => 'Ireland',
+       'se' => 'Sweden',
+       'fi' => 'Finland',
+       'ee' => 'Estonia',
+       'lv' => 'Latvia',
+       'ge' => 'Georgia',
+       'kg' => 'Kyrgyzstan',
+       'kz' => 'Kazakhstan',
+       'by' => 'Belarus',
+       'tj' => 'Tajikistan',
+       'uz' => 'Uzbekistan',
+       'de' => 'Germany',
+       'ru' => 'Russia',
+       'az' => 'Azerbaijan',
+       'fr' => 'France'
+   ];
+
+
 
    public static function setNotifySuccesSaved()
    {

@@ -1,6 +1,8 @@
 <?php
 
+use app\models\Project;
 use app\modules\admin\models\ModelStatus;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -26,7 +28,9 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'responsibility')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'project_id')->textInput() ?>
+            <?= $form->field($model, 'project_id')->dropDownList(ArrayHelper::map(Project::getItems(), 'id', 'title'), [
+                    'prompt' => '---Select Project---'
+            ]) ?>
         </div>
     </div>
     <div class="row">

@@ -14,7 +14,10 @@ use app\models\AboutMe;
 use app\models\Blog;
 use app\models\Category;
 use app\models\Contact;
+use app\models\Contacts;
+use app\models\Coordinator;
 use app\models\CV;
+use app\models\EventCategories;
 use app\models\Events;
 use app\models\MyBooks;
 use app\models\News;
@@ -22,6 +25,7 @@ use app\models\Profiles;
 use app\models\Project;
 use app\models\Publication;
 use app\models\Setting;
+use app\models\Team;
 use app\modules\admin\models\BackMenu;
 use app\modules\admin\models\FrontMenu;
 use app\modules\admin\models\Pages;
@@ -61,6 +65,22 @@ class EditableController extends Controller
             'change-news-status' => [
                 'class' => EditableColumnAction::classname(),
                 'modelClass' => News::className(),
+            ],
+            'change-team-status' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => Team::className(),
+            ],
+            'change-coordinator-status' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => Coordinator::className(),
+            ],
+            'change-event-cat-status' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => EventCategories::className(),
+            ],
+            'change-contact-statu' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => Contacts::className(),
             ],
 
         ];
