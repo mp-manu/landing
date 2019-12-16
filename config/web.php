@@ -12,10 +12,14 @@ $config = [
             'class' => 'app\components\LanguageSelector',
             'supportedLanguages' => ['en-US'],
         ]
-        ],
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@upload' => '/upload',
+        '@image' => '/image',
+        '@uploadsroot' => $_SERVER['DOCUMENT_ROOT'].'/upload',
+        '@imageroot' => $_SERVER['DOCUMENT_ROOT'].'/image',
     ],
     'components' => [
         'request' => [
@@ -30,7 +34,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'main/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -50,7 +54,15 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+
             ],
+        ],
+        'settings' => [
+            'class' => 'app\components\Settings',
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user', 'admin'],
         ],
         'i18n' => [
             'translations' => [
@@ -68,16 +80,9 @@ $config = [
                 ],
                 'yii2mod.settings' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@yii2mod/settings/messages',
+                    'basePath' => '@vendor/yii2mod/settings/messages',
                 ],
             ],
-        ],
-        'settings' => [
-            'class' => 'app\components\Settings',
-        ],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-            'defaultRoles' => ['guest', 'user', 'admin'],
         ],
     ],
     'modules' => [
@@ -91,6 +96,9 @@ $config = [
                 'class' => yii2mod\rbac\filters\AccessControl::className()
             ],
         ],
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
     ],
     'as access' => [
         'class' => yii2mod\rbac\filters\AccessControl::className(),
@@ -99,6 +107,7 @@ $config = [
             'admin/main/login',
         ]
     ],
+
     'params' => $params,
 ];
 

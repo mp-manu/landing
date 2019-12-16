@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\admin;
+use app\models\User;
 use app\widgets\AdminMenu;
 
 /**
@@ -33,6 +34,6 @@ class AdminModule extends \yii\base\Module
        //\Yii::$app->view->params['commentCount'] = Comment::find()->where(['is_published' => 'no'])->count();
        //\Yii::$app->view->params['messageCount'] = UserMessage::find()->where(['status' => 0])->count();
        //\Yii::$app->view->params['subcribersCount'] = Subcribers::find()->where(['status' => 0])->count();
-       //\Yii::$app->view->params['avatar'] = User::find()->select(['avatar'])->where(['user_id' => \Yii::$app->user->id])->asArray()->one();
+       \Yii::$app->view->params['avatar'] = User::find()->select(['avatar'])->where(['user_id' => \Yii::$app->user->id])->asArray()->one();
     }
 }

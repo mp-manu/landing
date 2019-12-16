@@ -479,9 +479,9 @@ address { font-style: italic; }
     visibility: visible;
 }
 .wm-dropdown-menu {
-    background-color: #ffffff;
+    background-color: #012C59;
     left: 0;
-    margin: 10px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     opacity: 0;
     position: absolute;
     top: 100%;
@@ -511,12 +511,15 @@ address { font-style: italic; }
 }
 .wm-dropdown-menu li a {
     border-bottom: 1px solid #f8f8f8;
-    color: #6c8391;
+    color: #ffffff;
     float: left;
     font-size: 16px;
     font-weight: 300;
     padding: 10px 30px;
     width: 100%;
+}
+.wm-dropdown-menu li a:hover{
+    color: yellow!important;
 }
 .wm-dropdown-menu li:last-child a { border: none; }
 /* Mega Menu */
@@ -952,7 +955,7 @@ address { font-style: italic; }
 }
 .wm-caption-two-inner {
     float: left;
-    width: 60%;
+    width: 70%;
 }
 .wm-caption-two h1 {
     font-size: 50px;
@@ -8152,7 +8155,7 @@ aside .widget {
 .wm-404page-bg {
     width: 100%;
     float: left;
-    background-image: url('extra-images/404-image.jpg');
+    /*background-image: url('extra-images/404-image.jpg');*/
     background-repeat: no-repeat;
     background-position: 3%;
     margin: -55px 0 -60px;
@@ -9557,7 +9560,7 @@ aside .widget {
     width: 100%;
 }
 .wm-footer-newslatter {
-    background-color: #222845;
+    background-color: #003399;
     padding: 17px 0px;
 }
 .wm-footer-newslatter form i {
@@ -9728,7 +9731,7 @@ aside .widget {
 }
 .wm-copyright p {
     margin-bottom: 0px;
-    float: right;
+    float: left;
     color: #a4a4a4;
     font-size: 14px;
 }

@@ -99,7 +99,7 @@
       <div class="container">
          <div class="row">
 <!--            <div class="col-md-6"> <span><i class="wmicon-nature"></i>/span> </div>-->
-            <div class="col-md-12"> <p>© <?= date('Y') ?>, All Right Reserved - by <a href="/" class="wm-color">WebMarce</a></p> </div>
+            <div class="col-md-12"> <p>© <?= date('Y') ?>, All Right Reserved</p> </div>
          </div>
       </div>
    </div>

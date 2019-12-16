@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class SiteController extends Controller
+class MainController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -29,23 +29,15 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+                //'layout' => 'main-without-sidebar',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -53,6 +45,7 @@ class SiteController extends Controller
             ],
         ];
     }
+
 
     /**
      * Displays homepage.

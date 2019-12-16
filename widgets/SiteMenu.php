@@ -22,9 +22,9 @@ class SiteMenu
                 foreach ($parents as $parent){
                     $childs = FrontMenu::find()->where(['parentnodeid' => $parent['nodeid'], 'nodeaccess' => 1])
                         ->orderBy('nodeorder')->asArray()->all();
-                    $hasChildren = (!empty($childs)) ? 'menu-item-has-children' : '';
-                    $tags .= '<li class = "menu-item '.$hasChildren.' akea-normal-menu">';
-                        $tags .= '<a href = "'.$parent['nodeurl'].'" class = sf-with-ul-pre>'.$parent['nodename'].'</a>';
+                    $hasChildren = (!empty($childs)) ? '<i class="fa fa-caret-down"> </i>' : '';
+                    $tags .= '<li class = "menu-item">';
+                        $tags .= '<a href = "'.$parent['nodeurl'].'" class = sf-with-ul-pre>'.$parent['nodename'].' '.$hasChildren.'</a>';
                         if(!empty($childs)){
                             $tags .= '<ul class = "wm-dropdown-menu">';
                                 foreach ($childs as $child){
