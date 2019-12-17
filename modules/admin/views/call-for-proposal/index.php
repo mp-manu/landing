@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\models\ModelStatus;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -17,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Call For Proposal', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <?= ModelStatus::getNotify() ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([

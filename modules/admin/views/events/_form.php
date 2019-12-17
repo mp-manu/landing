@@ -12,7 +12,14 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="events-form">
-
+    <?php if (!$model->isNewRecord): ?>
+        <?php if(!empty($model->photo)): ?>
+            <div class="col-md-12 text-center">
+                <img src="<?= \Yii::getAlias('@upload') . '/events/' . $model->photo ?>"
+                     width="300">
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <div class="col-md-6">

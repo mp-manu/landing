@@ -35,12 +35,12 @@ class Posts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'title'], 'required'],
+            [['title'], 'required'],
             [['id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
             [['description'], 'string'],
             [['date_post'], 'safe'],
-            [['title', 'author', 'photo'], 'string', 'max' => 255],
-            [['id'], 'unique'],
+            [['title', 'author'], 'string', 'max' => 255],
+            [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, svg'],
         ];
     }
 

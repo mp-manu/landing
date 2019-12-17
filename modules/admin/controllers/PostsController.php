@@ -2,12 +2,15 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\ModelStatus;
+use Cocur\Slugify\Slugify;
 use Yii;
 use app\models\Posts;
 use app\modules\admin\models\PostsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PostsController implements the CRUD actions for Posts model.
@@ -66,8 +69,25 @@ class PostsController extends Controller
     {
         $model = new Posts();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $date_post= $_POST['date_post'];
+            $s = explode('/', $date_post);
+            $model->date_post = $s[2].'-'.$s[0].'-'.$s[1];
+            $slug = new Slugify();
+            $photo = UploadedFile::getInstance($model, 'photo');
+            if(!empty($photo)) {
+                $path = Yii::getAlias('@uploadsroot');
+                $fileName = $slug->slugify($model->title) . '.' . $photo->extension;
+                $photo->saveAs($path . '/posts/' . $fileName);
+                $model->photo = $fileName;
+            }
+            ModelStatus::setTimeStampCreate($model);
+            if($model->save()){
+                ModelStatus::setNotifySuccesSaved();
+                return $this->redirect(['index']);
+            } else {
+                ModelStatus::setNotifyErrorSaved();
+            }
         }
 
         return $this->render('create', [
@@ -85,9 +105,28 @@ class PostsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $oldPhoto = $model->photo;
+        if ($model->load(Yii::$app->request->post())){
+            $date_post= $_POST['date_post'];
+            $s = explode('/', $date_post);
+            $model->date_post = $s[2].'-'.$s[0].'-'.$s[1];
+            $slug = new Slugify();
+            $photo = UploadedFile::getInstance($model, 'photo');
+            if(!empty($photo)) {
+                $path = Yii::getAlias('@uploadsroot');
+                $fileName = $slug->slugify($model->title) . '.' . $photo->extension;
+                $photo->saveAs($path . '/posts/' . $fileName);
+                $model->photo = $fileName;
+            }else{
+                $model->photo = $oldPhoto;
+            }
+            ModelStatus::setTimeStampCreate($model);
+            if($model->save()){
+                ModelStatus::setNotifySuccesSaved();
+                return $this->redirect(['index']);
+            } else {
+                ModelStatus::setNotifyErrorSaved();
+            }
         }
 
         return $this->render('update', [

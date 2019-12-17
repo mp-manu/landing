@@ -15,6 +15,10 @@ use Yii;
  * @property string $tel
  * @property string $email
  * @property string|null $fax
+ * @property string|null $facebook
+ * @property string|null $twitter
+ * @property string|null $linkedIn
+ * @property string|null $vimeo
  * @property int|null $status
  * @property int|null $created_at
  * @property int|null $created_by
@@ -40,7 +44,7 @@ class Contacts extends \yii\db\ActiveRecord
             [['address', 'tel', 'email'], 'required'],
             [['status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
             [['city', 'country', 'university', 'address', 'tel', 'email'], 'string', 'max' => 1000],
-            [['fax'], 'string', 'max' => 500],
+            [['fax', 'facebook', 'twitter', 'linkedIn', 'vimeo'], 'string', 'max' => 500],
         ];
     }
 
@@ -58,6 +62,10 @@ class Contacts extends \yii\db\ActiveRecord
             'tel' => 'Tel',
             'email' => 'Email',
             'fax' => 'Fax',
+            'facebook' => 'Facebook',
+            'twitter' => 'Twitter',
+            'linkedIn' => 'LinkedIn',
+            'vimeo' => 'Vimeo',
             'status' => 'Status',
             'created_at' => 'Created At',
             'created_by' => 'Created By',

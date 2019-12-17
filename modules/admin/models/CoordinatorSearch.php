@@ -18,8 +18,9 @@ class CoordinatorSearch extends Coordinator
     {
         return [
             [['id', 'project_id', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
-            [['unversity', 'country', 'address', 'activity_type', 'logo', 'web_site', 'org_contact', 'type', 'country_flag'], 'safe'],
+            [['unversity', 'country', 'address', 'activity_type', 'web_site', 'org_contact', 'type', 'country_flag'], 'safe'],
             [['eu_contribution'], 'number'],
+
         ];
     }
 

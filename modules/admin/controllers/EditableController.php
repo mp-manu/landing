@@ -21,6 +21,7 @@ use app\models\EventCategories;
 use app\models\Events;
 use app\models\MyBooks;
 use app\models\News;
+use app\models\Posts;
 use app\models\Profiles;
 use app\models\Project;
 use app\models\Publication;
@@ -78,11 +79,18 @@ class EditableController extends Controller
                 'class' => EditableColumnAction::classname(),
                 'modelClass' => EventCategories::className(),
             ],
-            'change-contact-statu' => [
+            'change-contact-status' => [
                 'class' => EditableColumnAction::classname(),
                 'modelClass' => Contacts::className(),
             ],
-
+            'change-setting-status' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => SettingSearch::className(),
+            ],
+            'change-posts-status' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => Posts::className(),
+            ],
         ];
     }
 

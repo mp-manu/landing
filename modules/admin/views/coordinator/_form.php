@@ -12,55 +12,62 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="coordinator-form">
+    <?php if (!$model->isNewRecord): ?>
+        <?php if (!empty($model->logo)): ?>
+            <div class="col-md-12 text-center">
+                <img src="<?= \Yii::getAlias('@upload') . '/logo/' . $model->logo ?>"  width="300">
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <div class="col-md-6">
-           <?= $form->field($model, 'unversity')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'unversity')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-6">
-           <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-           <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-6">
-           <?= $form->field($model, 'activity_type')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-           <?= $form->field($model, 'project_id')->dropDownList(ArrayHelper::map(Project::getItems(), 'id', 'title'), [
-                   'prompt' => '---- Select project ----'
-           ]) ?>
+            <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-6">
-           <?= $form->field($model, 'logo')->fileInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'activity_type')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-           <?= $form->field($model, 'eu_contribution')->textInput() ?>
+            <?= $form->field($model, 'project_id')->dropDownList(ArrayHelper::map(Project::getItems(), 'id', 'title'), [
+                'prompt' => '---- Select project ----'
+            ]) ?>
         </div>
         <div class="col-md-6">
-           <?= $form->field($model, 'web_site')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-           <?= $form->field($model, 'org_contact')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-6">
-           <?= $form->field($model, 'type')->dropDownList([ 'Coordinator' => 'Coordinator', 'Participant' => 'Participant', 'Partner' => 'Partner', ], ['prompt' => '']) ?>
+            <?= $form->field($model, 'logo')->fileInput(['maxlength' => true]) ?>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-           <?= $form->field($model, 'country_flag')->dropDownList(ModelStatus::$flags) ?>
+            <?= $form->field($model, 'eu_contribution')->textInput() ?>
         </div>
         <div class="col-md-6">
-           <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
+            <?= $form->field($model, 'web_site')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'org_contact')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'type')->dropDownList(['Coordinator' => 'Coordinator', 'Participant' => 'Participant', 'Partner' => 'Partner',], ['prompt' => '']) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'country_flag')->dropDownList(ModelStatus::$flags) ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>
     </div>
     <div class="form-group">

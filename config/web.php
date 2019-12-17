@@ -8,6 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'defaultRoute' => '/main/index/',
     'bootstrap' => ['log',
+        'app\models\GlobalData',
         [
             'class' => 'app\components\LanguageSelector',
             'supportedLanguages' => ['en-US'],

@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\models\ModelStatus;
 use yii\helpers\Html;
 use kartik\grid\GridView;
 
@@ -17,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Events', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <?= ModelStatus::getNotify() ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 <div class="card">
     <div class="card-body">
@@ -26,18 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'filterModel' => $searchModel,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
-//                'id',
                 'title',
-//                'description:ntext',
                 'date_from',
                 'date_to',
                 'category_id',
-                'photo',
+                [
+                    'attribute' => 'photo',
+                    'format' => 'html',
+                    'value' => function($model){
+                        return '<a href="'.Yii::getAlias('@upload').'/events/'.$model->photo.'"><img src="'.Yii::getAlias('@upload').'/events/'.$model->photo.'" width="150"></a>';
+                    }
+                ],
                 [
                     'class' => 'kartik\grid\EditableColumn',
                     'attribute' => 'status',
-
                     'editableOptions' => array(
                         'formOptions' => array('action' => array('/admin/editable/change-event-status')),
                         'inputType' => \kartik\editable\Editable::INPUT_DROPDOWN_LIST,
@@ -52,11 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => array(1 => 'Active', 0 => 'Inactive'),
                     'pageSummary' => true
                 ],
-                //'created_at',
-                //'created_by',
-                //'updated_at',
-                //'updated_by',
-
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>

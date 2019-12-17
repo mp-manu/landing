@@ -10,7 +10,14 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="news-form">
-
+    <?php if (!$model->isNewRecord): ?>
+        <?php if(!empty($model->photo)): ?>
+            <div class="col-md-12 text-center">
+                <img src="<?= \Yii::getAlias('@upload') . '/news/' . $model->photo ?>"
+                     width="300">
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <div class="col-md-12">
@@ -38,6 +45,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-md-6">
+            <label>Publish date</label>
             <div class="input-group date" data-provide="datepicker">
                 <input type="text" class="form-control" name="publish_date" data-date-format="yyyy-mm-dd">
                 <div class="input-group-addon">

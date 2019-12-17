@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\models\ModelStatus;
 use yii\helpers\Html;
 use kartik\grid\GridView;
 
@@ -17,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Add Coordinator', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <?= ModelStatus::getNotify() ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 <div class="card">
     <div class="card-body">
@@ -29,7 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //               'id',
                'unversity',
-               'country',
+               [
+                       'attribute' => 'country',
+                       'format' => 'html',
+                       'value' => function($data){
+                            return '<span _ngcontent-c25="" class="flag-icon flag-icon-'.$data->country_flag.' flag-cordis" title="se"></span> '.$data->country;
+                       }
+               ],
                'address',
                'activity_type',
               //'project_id',

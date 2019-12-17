@@ -35,15 +35,15 @@
             <aside class="widget widget_contact_info col-md-3">
                <a href="/" class="wm-footer-logo"><img src="/images/logo-1.png" alt=""></a>
                <ul>
-                  <li><i class="wm-color wmicon-pin"></i> 195 Cooks Mine Road Espanola, NM 87532</li>
-                  <li><i class="wm-color wmicon-phone"></i> +1 505-753-5656 <br> +1 505-753-4437</li>
-                  <li><i class="wm-color wmicon-letter"></i> <a href="mailto:name@email.com">info@university.com</a> <a href="mailto:name@email.com">support@university.com</a></li>
+                  <li><i class="wm-color wmicon-pin"></i> <?= Yii::$app->params['contact']['address'] ?></li>
+                  <li><i class="wm-color wmicon-phone"></i> <?= Yii::$app->params['contact']['tel'] ?></li>
+                  <li><i class="wm-color wmicon-letter"></i> <a href="mailto:<?= Yii::$app->params['contact']['email'] ?>"><?= Yii::$app->params['contact']['email'] ?></a></li>
                </ul>
                <div class="wm-footer-icons">
-                  <a href="#" class="wmicon-social5"></a>
-                  <a href="#" class="wmicon-social4"></a>
-                  <a href="#" class="wmicon-social3"></a>
-                  <a href="#" class="wmicon-vimeo"></a>
+                  <a href="<?= Yii::$app->params['contact']['facebook'] ?>" class="wmicon-social5"></a>
+                  <a href="<?= Yii::$app->params['contact']['twitter'] ?>" class="wmicon-social4"></a>
+                  <a href="<?= Yii::$app->params['contact']['linkedIn'] ?>" class="wmicon-social3"></a>
+                  <a href="<?= Yii::$app->params['contact']['vimeo'] ?>" class="wmicon-vimeo"></a>
                </div>
             </aside>
             <aside class="widget widget_archive col-md-2">
@@ -59,7 +59,7 @@
                </ul>
             </aside>
             <aside class="widget widget_twitter col-md-4">
-               <div class="wm-footer-widget-title"> <h5><i class="wmicon-social2"></i> @enrollcampus</h5> </div>
+               <div class="wm-footer-widget-title"> <h5><i class="wmicon-social2"></i> @<?= Yii::$app->params['contact']['twitter'] ?></h5> </div>
                <ul>
                   <li>
                      <p>Check Youniverse - Multipurpose PSD Template @ThemeForest: <a href="#">pic.twitter.com/xcVlqJySjq</a></p>

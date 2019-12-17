@@ -74,8 +74,8 @@ class EventsController extends Controller
          $date_end = $_POST['end'];
          $s = explode('/', $date_from);
          $e = explode('/', $date_end);
-         $model->date_from = $s[2] . $s[0] . $s[1];
-         $model->date_to = $e[2] . $e[0] . $e[1];
+         $model->date_from = $s[2].'-'.$s[0].'-'.$s[1];
+         $model->date_to = $e[2].'-'.$e[0].'-'.$e[1];
          $slug = new Slugify();
          $photo = UploadedFile::getInstance($model, 'photo');
          if (!empty($photo)) {

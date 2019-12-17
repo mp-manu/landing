@@ -40,7 +40,8 @@ class Events extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['date_from', 'date_to'], 'safe'],
             [['category_id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
-            [['title', 'photo'], 'string', 'max' => 500],
+            [['title'], 'string', 'max' => 500],
+            [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, svg'],
         ];
     }
 
@@ -55,7 +56,7 @@ class Events extends \yii\db\ActiveRecord
             'description' => 'Description',
             'date_from' => 'Date From',
             'date_to' => 'Date To',
-            'category_id' => 'Category ID',
+            'category_id' => 'Event Category',
             'photo' => 'Photo',
             'status' => 'Status',
             'created_at' => 'Created At',

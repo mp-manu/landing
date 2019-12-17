@@ -33,6 +33,7 @@ class MainAsset extends AssetBundle
       'css/color-three.css',
       'css/color-four.css',
       'css/responsive.css',
+      'flag-icon-css-master/css/flag-icon.min.css',
     ];
     public $js = [
     //jQuery (necessary for JavaScript plugins)

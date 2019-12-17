@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Coordinator */
 
-$this->title = $model->id;
+$this->title = $model->unversity;
 $this->params['breadcrumbs'][] = ['label' => 'Coordinators', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -25,27 +25,24 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'unversity',
-            'country',
-            'address',
-            'activity_type',
-            'project_id',
-            'logo',
-            'eu_contribution',
-            'web_site',
-            'org_contact',
-            'type',
-            'country_flag',
-            'created_at',
-            'created_by',
-            'updated_at',
-            'updated_by',
-        ],
-    ]) ?>
-
+    <div class="card">
+        <div class="card-body">
+            <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'unversity',
+                    'country',
+                    'address',
+                    'activity_type',
+                    'project_id',
+                    'logo',
+                    'eu_contribution',
+                    'web_site',
+                    'org_contact',
+                    'type',
+                    'country_flag',
+                ],
+            ]) ?>
+        </div>
+    </div>
 </div>

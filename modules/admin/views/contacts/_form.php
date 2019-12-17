@@ -45,6 +45,22 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($model, 'fax')->textInput(['maxlength' => true]) ?>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'facebook')->textInput() ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'twitter')->textInput(['maxlength' => true]) ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'linkedIn')->textInput() ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'vimeo')->textInput(['maxlength' => true]) ?>
+                </div>
+            </div>
             <div class="form-group">
                 <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
             </div>

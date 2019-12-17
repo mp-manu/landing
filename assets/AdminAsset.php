@@ -17,6 +17,7 @@ class AdminAsset extends AssetBundle
         'admin_assets/css/colors/default-custom.css',
         'admin_assets/css/colors.css',
         'admin_assets/css/custom.css',
+        'flag-icon-css-master/css/flag-icon.min.css',
     ];
 
     public $js = [

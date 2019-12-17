@@ -46,7 +46,8 @@ class Coordinator extends \yii\db\ActiveRecord
             [['eu_contribution'], 'number'],
             [['type'], 'string'],
             [['unversity', 'address', 'activity_type', 'web_site', 'org_contact'], 'string', 'max' => 800],
-            [['country', 'logo', 'country_flag'], 'string', 'max' => 500],
+            [['country', 'country_flag'], 'string', 'max' => 500],
+            [['logo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, svg'],
         ];
     }
 

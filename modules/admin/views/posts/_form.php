@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\models\ModelStatus;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -9,31 +10,46 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="posts-form">
-
+    <?php if (!$model->isNewRecord): ?>
+        <?php if(!empty($model->photo)): ?>
+            <div class="col-md-12 text-center">
+                <img src="<?= \Yii::getAlias('@upload') . '/posts/' . $model->photo ?>"
+                     width="300">
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'date_post')->textInput() ?>
-
-    <?= $form->field($model, 'photo')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput() ?>
-
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Post date</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" name="date_post" data-date-format="yyyy-mm-dd">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <?= $form->field($model, 'description')->textarea(['rows' => 8]) ?>
+        </div>
+        <div class="col-md-12">
+            <?= $form->field($model, 'photo')->fileInput() ?>
+        </div>
+    </div>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

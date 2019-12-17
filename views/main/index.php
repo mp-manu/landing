@@ -296,41 +296,6 @@ $this->title = 'Home Page';
 </div>
 <!--// Main Section \\-->
 
-<!--// Main Section \\-->
-<div class="wm-main-section wm-plain-service-full">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="wm-service wm-plain-service">
-                    <ul class="row">
-                        <li class="col-md-3">
-                            <span class="wm-color-two"><i class="wmicon-medical2"></i> <small class="word-count">100</small></span>
-                            <h5><a href="#">Dental Insurance</a></h5>
-                            <p>100% coverage for diagnostic and preventive care.</p>
-                        </li>
-                        <li class="col-md-3">
-                            <span class="wm-color-two"><i class="wmicon-glasses"></i> <small class="word-count">12</small></span>
-                            <h5><a href="#">Voluntary Vision</a></h5>
-                            <p>Our healthcare group insurance purchase the vision insurance.</p>
-                        </li>
-                        <li class="col-md-3">
-                            <span class="wm-color-two"><i class="wmicon-technology2"></i> <small class="word-count">34</small></span>
-                            <h5><a href="#">Flexible Spending Plan</a></h5>
-                            <p>Allows the employee to establish a Flexible Spending account</p>
-                        </li>
-                        <li class="col-md-3">
-                            <span class="wm-color-two"><i class="wmicon-medical"></i> <small class="word-count">56</small></span>
-                            <h5><a href="#">Health Savings</a></h5>
-                            <p>A tax-free savings account that works with a qualified health.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--// Main Section \\-->
 
 <!--// Main Section \\-->
 <div class="wm-main-section wm-tocolumn-spacer">
@@ -412,25 +377,44 @@ $this->title = 'Home Page';
                         <li class="col-md-4">
                             <span class="wm-ctservice-icon wm-bgcolor-two"><i class="wmicon-pin"></i></span>
                             <h5 class="wm-color">Address</h5>
-                            <p>195 Cooks Mine Road Espanola, NM 87532</p>
+                            <p><?= Yii::$app->params['contact']['address'] ?></p>
                         </li>
                         <li class="col-md-4">
                             <span class="wm-ctservice-icon wm-bgcolor-two"><i class="wmicon-phone"></i></span>
                             <h5 class="wm-color">Phone & Fax</h5>
-                            <p>+1 505-753-5656 +1 505-753-4437</p>
+                            <p><?=  Yii::$app->params['contact']['tel'] .' & '.  Yii::$app->params['contact']['fax'] ?></p>
                         </li>
                         <li class="col-md-4">
                             <span class="wm-ctservice-icon wm-bgcolor-two"><i class="wmicon-letter"></i></span>
                             <h5 class="wm-color">E-mail</h5>
-                            <p><a href="mailto:name@email.com">Info@university.com</a> <a href="mailto:name@email.com">support@university.com</a></p>
+                            <p>
+                                <a href="mailto:<?= Yii::$app->params['contact']['email'] ?>">
+                                    <?= Yii::$app->params['contact']['email'] ?>
+                                </a>
+                            </p>
                         </li>
                     </ul>
                 </div>
                 <ul class="contact-social-icon">
-                    <li><a href="#"><i class="wm-color wmicon-social5"></i> Facebook</a></li>
-                    <li><a href="#"><i class="wm-color wmicon-social4"></i> Twitter</a></li>
-                    <li><a href="#"><i class="wm-color wmicon-social3"></i> Linkedin</a></li>
-                    <li><a href="#"><i class="wm-color wmicon-vimeo"></i> Vimeo</a></li>
+                    <li>
+                        <a href="<?= Yii::$app->params['contact']['facebook'] ?>"><i class="wm-color wmicon-social5"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->params['contact']['twitter'] ?>">
+                            <i class="wm-color wmicon-social4"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->params['contact']['linkedIn'] ?>">
+                            <i class="wm-color wmicon-social3"></i> Linkedin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->params['contact']['vimeo'] ?>">
+                            <i class="wm-color wmicon-vimeo"></i> Vimeo
+                        </a></li>
                 </ul>
             </div>
 

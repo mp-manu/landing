@@ -76,7 +76,6 @@ class ProjectController extends Controller
         $proposalModel = new CallForProposal();
         $shemaModel = new FundingScheme();
 
-
         if($model->load(Yii::$app->request->post())) {
             $start_date = $_POST['start'];
             $end_date =  $_POST['end'];
@@ -87,8 +86,9 @@ class ProjectController extends Controller
             $model->start_date = $start_date;
             $model->end_date = $end_date;
             ModelStatus::setTimeStampCreate($model);
-            $model->save();
-
+            if($model->save()){
+                $this->setActiveTab('programm');
+            }
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
