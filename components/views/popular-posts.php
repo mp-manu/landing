@@ -16,7 +16,7 @@ if(!empty($data)):
                     <ul class="row">
                         <?php foreach ($data as $item): ?>
                         <li class="col-md-3">
-                            <figure><a href="#"><img src="<?= Yii::getAlias('@uploads').'/posts/'.$item['photo'] ?>" alt="<?= $item['title'] ?>"></a>
+                            <figure><a href="#"><img src="<?= Yii::getAlias('@upload').'/posts/'.$item['photo'] ?>" alt="<?= $item['title'] ?>"></a>
                                 <figcaption><a href="#"><span>See course</span></a></figcaption>
                             </figure>
                             <div class="coursespopular-list-text">
