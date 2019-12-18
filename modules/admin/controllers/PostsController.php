@@ -82,6 +82,7 @@ class PostsController extends Controller
                 $model->photo = $fileName;
             }
             ModelStatus::setTimeStampCreate($model);
+            ModelStatus::setTimeStampUpdate($model);
             if($model->save()){
                 ModelStatus::setNotifySuccesSaved();
                 return $this->redirect(['index']);
@@ -120,7 +121,7 @@ class PostsController extends Controller
             }else{
                 $model->photo = $oldPhoto;
             }
-            ModelStatus::setTimeStampCreate($model);
+            ModelStatus::setTimeStampUpdate($model);
             if($model->save()){
                 ModelStatus::setNotifySuccesSaved();
                 return $this->redirect(['index']);

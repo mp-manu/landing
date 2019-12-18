@@ -131,7 +131,7 @@ class ProjectController extends Controller
             $end_date = $e[2].'-'.$e[0].'-'.$e[1];
             $model->start_date = $start_date;
             $model->end_date = $end_date;
-            ModelStatus::setTimeStampCreate($model);
+            ModelStatus::setTimeStampUpdate($model);
             $model->save();
             $this->setActiveTab('programm');
 
@@ -157,7 +157,8 @@ class ProjectController extends Controller
         if($programmeModel->load(\Yii::$app->request->post())){
             $project_id = $programmeModel->project_id;
             ModelStatus::setTimeStampCreate($programmeModel);
-            if($programmeModel->save()){
+            ModelStatus::setTimeStampUpdate($programmeModel);
+           if($programmeModel->save()){
                 ModelStatus::setNotifySuccesSaved();
                 $this->setActiveTab('topic');
                 return $this->redirect(['update', 'id' => $project_id]);
@@ -170,6 +171,7 @@ class ProjectController extends Controller
         if($topicModel->load(\Yii::$app->request->post())){
             $project_id = $topicModel->project_id;
             ModelStatus::setTimeStampCreate($topicModel);
+            ModelStatus::setTimeStampUpdate($topicModel);
             if($topicModel->save()){
                 ModelStatus::setNotifySuccesSaved();
                 $this->setActiveTab('proposal');
@@ -183,6 +185,7 @@ class ProjectController extends Controller
         if($proposalModel->load(\Yii::$app->request->post())){
             $project_id = $proposalModel->project_id;
             ModelStatus::setTimeStampCreate($proposalModel);
+            ModelStatus::setTimeStampUpdate($proposalModel);
             if($proposalModel->save()){
                 ModelStatus::setNotifySuccesSaved();
                 $this->setActiveTab('schema');
@@ -196,7 +199,9 @@ class ProjectController extends Controller
         if($shemaModel->load(\Yii::$app->request->post())){
             $project_id = $shemaModel->project_id;
             ModelStatus::setTimeStampCreate($shemaModel);
-            if($shemaModel->save()){
+            ModelStatus::setTimeStampUpdate($shemaModel);
+
+           if($shemaModel->save()){
                 ModelStatus::setNotifySuccesSaved();
                 return $this->redirect(['update', 'id' => $project_id]);
             }

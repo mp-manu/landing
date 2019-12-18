@@ -79,6 +79,7 @@ class CoordinatorController extends Controller
             $model->logo = $fileName;
          }
          ModelStatus::setTimeStampCreate($model);
+         ModelStatus::setTimeStampUpdate($model);
          if ($model->save()) {
             ModelStatus::setNotifySuccesSaved();
             return $this->redirect(['index']);

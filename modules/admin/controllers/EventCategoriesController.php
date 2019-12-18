@@ -70,6 +70,8 @@ class EventCategoriesController extends Controller
         if ($model->load(Yii::$app->request->post())) {
            if($model->save()){
               ModelStatus::setNotifySuccesSaved();
+              ModelStatus::setTimeStampCreate($model);
+              ModelStatus::setTimeStampUpdate($model);
               return $this->redirect(['index']);
            }else{
               ModelStatus::setNotifyErrorSaved();
@@ -93,6 +95,7 @@ class EventCategoriesController extends Controller
         $model = $this->findModel($id);
 
        if ($model->load(Yii::$app->request->post())) {
+          ModelStatus::setTimeStampUpdate($model);
           if($model->save()){
              ModelStatus::setNotifySuccesSaved();
              return $this->redirect(['index']);

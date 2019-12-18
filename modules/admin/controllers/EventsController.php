@@ -85,6 +85,7 @@ class EventsController extends Controller
             $model->photo = $fileName;
          }
          ModelStatus::setTimeStampCreate($model);
+         ModelStatus::setTimeStampUpdate($model);
          if ($model->save()) {
             ModelStatus::setNotifySuccesSaved();
             return $this->redirect(['index']);

@@ -66,7 +66,7 @@ class Coordinator extends \yii\db\ActiveRecord
             'logo' => 'Logo',
             'eu_contribution' => 'Eu Contribution',
             'web_site' => 'Web Site',
-            'org_contact' => 'Org Contact',
+            'org_contact' => 'Organization Contact Link',
             'type' => 'Type',
             'country_flag' => 'Country Flag',
             'created_at' => 'Created At',

@@ -2,6 +2,7 @@
 
 use app\models\Project;
 use app\modules\admin\models\ModelStatus;
+use dosamigos\tinymce\TinyMce;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -43,7 +44,7 @@ use yii\widgets\ActiveForm;
                                             <?php foreach ($schemas as $item): ?>
                                                 <tbody>
                                                 <tr>
-                                                    <td><?= $item['name'] ?></td>
+                                                    <td><?= $item['title'] ?></td>
                                                     <td><?= $item['description'] ?></td>
                                                     <td><?= $item['status'] ?></td>
                                                 </tr>
@@ -61,19 +62,19 @@ use yii\widgets\ActiveForm;
         </div>
     <?php endif; ?>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-md-6">
-            <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+        <div class="col-md-12">
+           <?= $form->field($model, 'description')->textarea() ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?php if (!empty($projectId)): ?>
                 <?= $form->field($model, 'project_id')->hiddenInput(['value' => $projectId])->label(false) ?>
             <?php else: ?>
