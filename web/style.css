@@ -10259,3 +10259,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
     height: 62px;
     z-index: 0;
 }
+
+.menu-item{
+    font-family: 'Merriweather', serif;
+}

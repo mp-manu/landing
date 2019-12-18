@@ -61,7 +61,7 @@ class Slider extends \yii\db\ActiveRecord
             'slide_cover' => 'Slider Cover',
             'is_has_btn' => 'Slider Button',
             'btn_title' => 'Button text',
-            'btn_link' => 'Button link (default link About)',
+            'btn_link' => 'Button link (default link AboutController)',
             'order' => 'Slide Order',
             'access' => 'Status',
         ];

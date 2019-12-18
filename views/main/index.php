@@ -1,6 +1,9 @@
 <?php
 
 
+use app\components\Partners;
+use app\components\UpcomingEvents;
+
 $this->title = 'Home Page';
 ?>
 
@@ -197,173 +200,16 @@ $this->title = 'Home Page';
 
 
 <!--// Main Section \\-->
-<div class="wm-main-section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="wm-courses wm-modren-courses">
-                <ul>
-                    <li class="col-md-3">
-                        <figure><a href="#"><img src="/extra-images/modren-courses-1.jpg" alt=""></a> <h2 class="wm-course-captiontitle">Our Instructors</h2>
-                            <figcaption>
-                                <h3><a href="#">Our Instructors</a></h3>
-                                <p>Our two-year Conservatory education prepares our graduates with the power to impact audiences.</p>
-                                <a href="#" class="wm-course-see-btn">See all</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="col-md-3">
-                        <figure><a href="#"><img src="/extra-images/modren-courses-2.jpg" alt=""></a> <h2 class="wm-course-captiontitle">Conservatory Courses</h2>
-                            <figcaption>
-                                <h3><a href="#">Conservatory Courses</a></h3>
-                                <p>Our two-year Conservatory education prepares our graduates with the power to impact audiences.</p>
-                                <a href="#" class="wm-course-see-btn">See all</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="col-md-3">
-                        <figure><a href="#"><img src="/extra-images/modren-courses-3.jpg" alt=""></a> <h2 class="wm-course-captiontitle">Our Facility</h2>
-                            <figcaption>
-                                <h3><a href="#">Our Facility</a></h3>
-                                <p>Our two-year Conservatory education prepares our graduates with the power to impact audiences.</p>
-                                <a href="#" class="wm-course-see-btn">See all</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="col-md-3">
-                        <figure><a href="#"><img src="/extra-images/modren-courses-4.jpg" alt=""></a> <h2 class="wm-course-captiontitle">FAQ</h2>
-                            <figcaption>
-                                <h3><a href="#">FAQ</a></h3>
-                                <p>Our two-year Conservatory education prepares our graduates with the power to impact audiences.</p>
-                                <a href="#" class="wm-course-see-btn">See all</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</div>
+<?= Partners::widget() ?>
 <!--// Main Section \\-->
 
 <!--// Main Section \\-->
-<div class="wm-main-section wm-upcoming-event-slider-full">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="wm-fancytitle-two"> <h2>Upcoming Events</h2> </div>
-                <div class="wm-upcoming-event-slider">
-                    <div class="wm-upcoming-event-layer">
-                        <div class="wm-banner-addswrap">
-                            <div class="wm-banner-adds-inner">
-                                <time datetime="2008-02-14 20:00"><i class="wmicon-time2"></i> 24 April, 2016</time>
-                                <h2>Convocation Recital</h2>
-                                <p>We are pleased to offer a live-stream of this concert. The concert will not be archived for future viewing.</p>
-                            </div>
-                            <span>3220 Terry Lane Orlando, FL 32801</span>
-                            <div class="wm-banner-adds-inner"> <a href="#" class="wm-classic-button wm-bgcolor-two">See Event</a> </div>
-                        </div>
-                    </div>
-                    <div class="wm-upcoming-event-layer">
-                        <div class="wm-banner-addswrap">
-                            <div class="wm-banner-adds-inner">
-                                <time datetime="2008-02-14 20:00"><i class="wmicon-time2"></i> 22 April, 2016</time>
-                                <h2>Percussion Ensemble</h2>
-                                <p>Performing contemporary works for percussion and marimba ensemble with a diverse array.</p>
-                            </div>
-                            <span>3198 Hill Street Wapakoneta, OH 45895</span>
-                            <div class="wm-banner-adds-inner"> <a href="#" class="wm-classic-button wm-bgcolor-two">See Event</a> </div>
-                        </div>
-                    </div>
-                    <div class="wm-upcoming-event-layer">
-                        <div class="wm-banner-addswrap">
-                            <div class="wm-banner-adds-inner">
-                                <time datetime="2008-02-14 20:00"><i class="wmicon-time2"></i> 10 April, 2016</time>
-                                <h2>Dean's Showcase Event</h2>
-                                <p>Music students who've been selected by faculty to participate in the Dean's Showcase.</p>
-                            </div>
-                            <span>2013 Webster Street Woodbridge, NJ 07095</span>
-                            <div class="wm-banner-adds-inner"> <a href="#" class="wm-classic-button wm-bgcolor-two">See Event</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+<?= UpcomingEvents::widget() ?>
 <!--// Main Section \\-->
 
 
 <!--// Main Section \\-->
-<div class="wm-main-section wm-tocolumn-spacer">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="wm-fancytitle-two wm-align-left"> <h2>Latest News</h2> </div>
-                <div class="wm-news wm-latest-news">
-                    <ul class="row">
-                        <li class="col-md-12">
-                            <div class="wm-latest-news-wrap">
-                                <figure><a href="#"><img src="extra-images/latest-news-thumb-1.jpg" alt=""></a> <figcaption><a href="#" class="wmicon-arrows3"></a></figcaption> </figure>
-                                <div class="wm-latestnews-text">
-                                    <time datetime="2008-02-14 20:00"><small>apr</small> 17</time>
-                                    <h5><a href="#">Educator Dr. Nicole R. Robinson</a></h5>
-                                    <p>The UMKC Conservatory is pleased to announce...</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-12">
-                            <div class="wm-latest-news-wrap">
-                                <figure><a href="#"><img src="extra-images/latest-news-thumb-2.jpg" alt=""></a> <figcaption><a href="#" class="wmicon-arrows3"></a></figcaption> </figure>
-                                <div class="wm-latestnews-text">
-                                    <time datetime="2008-02-14 20:00"><small>apr</small> 14</time>
-                                    <h5><a href="#">Conservatory Academy Director</a></h5>
-                                    <p>We’re pleased to note that sax great Bobby...</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-12">
-                            <div class="wm-latest-news-wrap">
-                                <figure><a href="#"><img src="extra-images/latest-news-thumb-3.jpg" alt=""></a> <figcaption><a href="#" class="wmicon-arrows3"></a></figcaption> </figure>
-                                <div class="wm-latestnews-text">
-                                    <time datetime="2008-02-14 20:00"><small>apr</small> 12</time>
-                                    <h5><a href="#">Mara Gibson Named MacDowell</a></h5>
-                                    <p>The Conservatory's Community Academy...</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="wm-fancytitle-two wm-align-left"> <h2>Testimonials</h2> </div>
-                <div class="wm-thumb-testimonial">
-                    <div class="wm-thumb-testimonial-layer">
-                        <figure><a href="#"><img src="extra-images/testimonial-slider-1.jpg" alt=""></a></figure>
-                        <div class="thumb-testimonial-text">
-                            <h4><a href="#">Jennifer Cameron</a></h4>
-                            <span class="wm-color-two">-Guitar Student</span>
-                            <p>I just wanted to thank you for the beautiful guides! We are in the midst of Family Weekend check-in and have had RAVE from our parents!</p>
-                        </div>
-                    </div>
-                    <div class="wm-thumb-testimonial-layer">
-                        <figure><a href="#"><img src="extra-images/testimonial-slider-2.jpg" alt=""></a></figure>
-                        <div class="thumb-testimonial-text">
-                            <h4><a href="#">Guillermo L. Kelly</a></h4>
-                            <span class="wm-color-two">-Guitar Student</span>
-                            <p>I just wanted to thank you for the beautiful guides! We are in the midst of Family Weekend check-in and have had RAVE from our parents!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+<?= \app\components\LatestNews::widget() ?>
 <!--// Main Section \\-->
 
 <!--// Main Section \\-->

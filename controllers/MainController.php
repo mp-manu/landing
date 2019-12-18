@@ -37,7 +37,7 @@ class MainController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-                //'layout' => 'main-without-sidebar',
+                'layout' => 'main-pages',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',

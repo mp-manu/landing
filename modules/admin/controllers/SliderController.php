@@ -95,7 +95,7 @@ class SliderController extends Controller
             $model->access = 1;
             $model->order = Slider::setSlideOrder($model->order);
             if(empty($model->btn_title)){
-                $model->btn_title='About Us';
+                $model->btn_title='AboutController Us';
                 $model->btn_link = '/main/about-us';
             }
             if($model->save()){
