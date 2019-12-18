@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\models\ModelStatus;
+use dosamigos\tinymce\TinyMce;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -67,14 +68,25 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'description')->textarea(['maxlength' => true]) ?>
+           <?= $form->field($model, 'description')->widget(TinyMce::className(), [
+               'options' => ['rows' => 15],
+               'language' => 'en-US',
+               'clientOptions' => [
+                   'plugins' => [
+                       "advlist autolink lists link charmap print preview anchor",
+                       "searchreplace visualblocks code fullscreen",
+                       "insertdatetime media image table contextmenu paste"
+                   ],
+                   'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+               ]
+           ]); ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?php if (!empty($projectId)): ?>
                 <?= $form->field($model, 'project_id')->hiddenInput(['value' => $projectId])->label(false) ?>
             <?php else: ?>

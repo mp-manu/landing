@@ -36,7 +36,7 @@ class Topic extends \yii\db\ActiveRecord
             [['name'], 'required'],
             [['status', 'created_at', 'created_by', 'updated_at', 'updated_by', 'project_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['description'], 'string', 'max' => 1000],
+            [['description'], 'string'],
         ];
     }
 

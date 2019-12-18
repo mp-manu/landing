@@ -1,8 +1,11 @@
 <?php
 
 
+
 use app\components\Partners;
 use app\components\UpcomingEvents;
+use app\components\PopularPosts;
+
 
 $this->title = 'Home Page';
 ?>
@@ -104,98 +107,17 @@ $this->title = 'Home Page';
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 <!--// Main Section \\-->
 
 <!--// Main Section \\-->
-<div class="wm-main-section wm-popular-courses-full">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="wm-fancytitle-two"> <h2>Popular Courses</h2> </div>
-                <div class="wm-courses wm-coursespopular-list">
-                    <ul class="row">
-                        <li class="col-md-3">
-                            <figure><a href="#"><img src="extra-images/popular-courses-1.jpg" alt=""></a> <figcaption><a href="#"><span>See course</span></a></figcaption> </figure>
-                            <div class="coursespopular-list-text">
-                                <div class="list-courses-thumb"> <img src="extra-images/popular-courses-thumb-1.jpg" alt=""> <a href="#" class="wm-color-two">Shelly T. Forrester</a> </div>
-                                <h6><a href="#">Master of Music Degree</a></h6>
-                            </div>
-                            <div class="wm-list-options wm-bgcolor-two">
-                                <a href="#"><i class="wmicon-social7"></i> 342</a>
-                                <a href="#"><i class=" wmicon-social6"></i> 10</a>
-                                <span class="wm-list-price">$32</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <figure><a href="#"><img src="extra-images/popular-courses-2.jpg" alt=""></a> <figcaption><a href="#"><span>See course</span></a></figcaption> </figure>
-                            <div class="coursespopular-list-text">
-                                <div class="list-courses-thumb"> <img src="extra-images/popular-courses-thumb-2.jpg" alt=""> <a href="#" class="wm-color-two">Guillermo L. Kelly</a> </div>
-                                <h6><a href="#">The Distinction of Academy Training</a></h6>
-                            </div>
-                            <div class="wm-list-options wm-bgcolor-two">
-                                <a href="#"><i class="wmicon-social7"></i> 409</a>
-                                <a href="#"><i class=" wmicon-social6"></i> 23</a>
-                                <span class="wm-list-price">Free</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <figure><a href="#"><img src="extra-images/popular-courses-3.jpg" alt=""></a> <figcaption><a href="#"><span>See course</span></a></figcaption> </figure>
-                            <div class="coursespopular-list-text">
-                                <div class="list-courses-thumb"> <img src="extra-images/popular-courses-thumb-3.jpg" alt=""> <a href="#" class="wm-color-two">Elizabeth Anderson</a> </div>
-                                <h6><a href="#">Refinement Through Performance</a></h6>
-                            </div>
-                            <div class="wm-list-options wm-bgcolor-two">
-                                <a href="#"><i class="wmicon-social7"></i> 137</a>
-                                <a href="#"><i class=" wmicon-social6"></i> 32</a>
-                                <span class="wm-list-price">$49</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <figure><a href="#"><img src="extra-images/popular-courses-4.jpg" alt=""></a> <figcaption><a href="#"><span>See course</span></a></figcaption> </figure>
-                            <div class="coursespopular-list-text">
-                                <div class="list-courses-thumb"> <img src="extra-images/popular-courses-thumb-4.jpg" alt=""> <a href="#" class="wm-color-two">Quintin L. Erickson</a> </div>
-                                <h6><a href="#"> Associate of Occupational Studies</a></h6>
-                            </div>
-                            <div class="wm-list-options wm-bgcolor-two">
-                                <a href="#"><i class="wmicon-social7"></i> 199</a>
-                                <a href="#"><i class=" wmicon-social6"></i> 18</a>
-                                <span class="wm-list-price">$39</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+<?= PopularPosts::widget() ?>
 <!--// Main Section \\-->
 
 <!--// Main Section \\-->
-<div class="wm-main-section wm-partners-slider-two-full">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="wm-simple-section-title wm-partners-title-three"> <h2>University Partners</h2> </div>
-                <div class="wm-partners-slider-classic gallery">
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-1.png"> <img src="extra-images/university-partners-1.png" alt=""> </a> </div>
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-2.png"> <img src="extra-images/university-partners-2.png" alt=""> </a> </div>
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-3.png"> <img src="extra-images/university-partners-3.png" alt=""> </a> </div>
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-4.png"> <img src="extra-images/university-partners-4.png" alt=""> </a> </div>
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-5.png"> <img src="extra-images/university-partners-5.png" alt=""> </a> </div>
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-6.png"> <img src="extra-images/university-partners-6.png" alt=""> </a> </div>
-                    <div class="wm-partners-layer"> <a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/university-partners-1.png"> <img src="extra-images/university-partners-1.png" alt=""> </a> </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+<?= \app\components\Participant::widget() ?>
 <!--// Main Section \\-->
 
 

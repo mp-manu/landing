@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\models\ModelStatus;
+use dosamigos\tinymce\TinyMce;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -65,19 +66,19 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'description')->textarea(['maxlength' => true]) ?>
+           <?= $form->field($model, 'description')->textarea(); ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>
         <?php if(!empty($projectId)): ?>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'project_id')->hiddenInput(['value' => $projectId])->label(false) ?>
         </div>
         <?php else: ?>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?= $form->field($model, 'project_id')->dropDownList(ArrayHelper::map(\app\models\Project::getItems(), 'id', 'title')) ?>
             </div>
         <?php endif; ?>

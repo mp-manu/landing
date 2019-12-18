@@ -69,6 +69,7 @@ class ContactsController extends Controller
 
        if ($model->load(Yii::$app->request->post())) {
            ModelStatus::setTimeStampCreate($model);
+          ModelStatus::setTimeStampUpdate($model);
           if($model->save()){
              ModelStatus::setNotifySuccesSaved();
              return $this->redirect(['index']);

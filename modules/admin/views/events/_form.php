@@ -2,6 +2,7 @@
 
 use app\models\EventCategories;
 use app\modules\admin\models\ModelStatus;
+use dosamigos\tinymce\TinyMce;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -46,7 +47,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'description')->widget(\dosamigos\tinymce\TinyMce::className(), [
+            <?= $form->field($model, 'description')->widget(TinyMce::className(), [
                 'options' => ['rows' => 15],
                 'language' => 'en-US',
                 'clientOptions' => [
