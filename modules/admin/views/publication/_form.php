@@ -16,9 +16,14 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-md-6">
+           <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>

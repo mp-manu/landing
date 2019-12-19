@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use MongoDB\Driver\Query;
 use Yii;
 
 /**
@@ -12,6 +13,8 @@ use Yii;
  * @property string $person
  * @property string|null $responsibility
  * @property int|null $status
+ * @property string|null $about
+ * @property string|null $photo
  * @property int|null $created_at
  * @property int|null $created_by
  * @property int|null $updated_at
@@ -39,6 +42,7 @@ class Team extends \yii\db\ActiveRecord
             [['university'], 'string', 'max' => 800],
             [['person'], 'string', 'max' => 500],
             [['responsibility'], 'string', 'max' => 255],
+            [['about', 'photo'], 'string'],
         ];
     }
 
@@ -59,5 +63,13 @@ class Team extends \yii\db\ActiveRecord
             'updated_by' => 'Updated By',
             'project_id' => 'Project',
         ];
+    }
+
+    public static function getUnivers(){
+       $arr = (new \yii\db\Query())->select('university')->distinct('university')
+           ->from('team')
+           ->where(['status' => 1])
+           ->all();
+       return $arr;
     }
 }

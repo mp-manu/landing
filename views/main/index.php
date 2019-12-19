@@ -2,7 +2,6 @@
 
 
 use app\components\LatestNews;
-use app\components\Participant;
 use app\components\Partners;
 use app\components\UpcomingEvents;
 use app\components\PopularPosts;
@@ -85,7 +84,7 @@ $this->title = 'Home Page';
 
 
 <!--// Main Section \\-->
-<?= \app\components\LatestNews::widget() ?>
+<?= LatestNews::widget() ?>
 <!--// Main Section \\-->
 
 <!--// Main Section \\-->
@@ -139,7 +138,6 @@ $this->title = 'Home Page';
                         </a></li>
                 </ul>
             </div>
-
         </div>
     </div>
 </div>

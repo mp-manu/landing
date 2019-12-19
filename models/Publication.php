@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $title
  * @property string|null $description
+ * @property string|null $author
  * @property int|null $status
  * @property int|null $created_at
  * @property int|null $created_by
@@ -34,7 +35,7 @@ class Publication extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
-            [['description'], 'string'],
+            [['description', 'author'], 'string'],
             [['title'], 'string', 'max' => 500],
         ];
     }
@@ -47,6 +48,7 @@ class Publication extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'author' => 'Author',
             'description' => 'Description',
             'status' => 'Status',
             'created_at' => 'Created At',

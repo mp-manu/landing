@@ -18,9 +18,9 @@ MainAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php $this->registerCsrfMetaTags() ?>
+   <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+   <?php $this->head() ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +35,7 @@ MainAsset::register($this);
 <div class="wm-main-wrapper">
 
     <!--// Header \\-->
-    <?= $this->render('header') ?>
+   <?= $this->render('header') ?>
     <!--// Header \\-->
     <!--// Mini Header \\-->
     <div class="wm-mini-header">
@@ -44,16 +44,20 @@ MainAsset::register($this);
             <div class="row">
                 <div class="col-md-12">
                     <div class="wm-mini-title">
-                        <h1><?= substr($this->title, 0, 51).'...' ?></h1>
+                       <?php if (!Yii::$app->controller->action->id == 'new-market'): ?>
+                           <h1><?= substr($this->title, 0, 51) . '...' ?></h1>
+                       <?php else: ?>
+                           <h1><?= substr($this->title, 0, 51) ?></h1>
+                       <?php endif; ?>
                     </div>
                     <div class="wm-breadcrumb">
-                        <?= Breadcrumbs::widget([
-                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                            'tag' => 'ul',
-                            'options' => ['class' => ''],
-                            //'itemTemplate' => '<li>{link}&nbsp;',
-                            'homeLink' => ['label' => 'Home', 'url' => '/'],
-                        ]) ?>
+                       <?= Breadcrumbs::widget([
+                           'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                           'tag' => 'ul',
+                           'options' => ['class' => ''],
+                          //'itemTemplate' => '<li>{link}&nbsp;',
+                           'homeLink' => ['label' => 'Home', 'url' => '/'],
+                       ]) ?>
                     </div>
                 </div>
             </div>
@@ -66,7 +70,7 @@ MainAsset::register($this);
         <div class="wm-main-section">
             <div class="container">
 
-                <?= $content ?>
+               <?= $content ?>
 
             </div>
         </div>
@@ -74,7 +78,7 @@ MainAsset::register($this);
     </div>
     <!--// Main Content \\-->
 
-    <?= $this->render('footer') ?>
+   <?= $this->render('footer') ?>
 
     <div class="clearfix"></div>
 </div>

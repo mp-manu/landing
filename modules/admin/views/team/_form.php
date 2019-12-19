@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Project;
+use app\models\Team;
 use app\modules\admin\models\ModelStatus;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -17,7 +18,16 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'university')->textInput(['maxlength' => true]) ?>
+            <?php
+                $univers = Team::getUnivers();
+                //debug($univers);
+//                if(count($univers) > 0){
+//                    echo $form->field($model, 'university')->dropDownList(ArrayHelper::map($univers, 'university', 'university'));
+//                }else{
+                    echo $form->field($model, 'university')->textInput(['maxlength' => true]);
+//                }
+            ?>
+
         </div>
         <div class="col-md-6">
             <?= $form->field($model, 'person')->textInput(['maxlength' => true]) ?>
@@ -35,7 +45,15 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
+           <?= $form->field($model, 'about')->textarea() ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'photo')->fileInput() ?>
+        </div>
+        <div class="col-md-6">
+           <?= $form->field($model, 'status')->dropDownList(ModelStatus::listData()) ?>
         </div>
     </div>
 

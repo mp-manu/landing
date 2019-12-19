@@ -3,12 +3,14 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\ModelStatus;
+use Cocur\Slugify\Slugify;
 use Yii;
 use app\models\Team;
 use app\modules\admin\models\TeamSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TeamController implements the CRUD actions for Team model.
@@ -70,6 +72,14 @@ class TeamController extends Controller
         if ($model->load(Yii::$app->request->post())) {
            ModelStatus::setTimeStampCreate($model);
            ModelStatus::setTimeStampUpdate($model);
+           $slug = new Slugify();
+           $photo = UploadedFile::getInstance($model, 'photo');
+           if(!empty($photo)) {
+              $path = Yii::getAlias('@uploadsroot');
+              $fileName = $slug->slugify($model->person) . '.' . $photo->extension;
+              $photo->saveAs($path . '/team/' . $fileName);
+              $model->photo = $fileName;
+           }
            if($model->save()){
               ModelStatus::setNotifySuccesSaved();
               return $this->redirect(['index']);
@@ -94,19 +104,27 @@ class TeamController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+         $oldPhoto = $model->photo;
        if ($model->load(Yii::$app->request->post())) {
           ModelStatus::setTimeStampCreate($model);
           ModelStatus::setTimeStampUpdate($model);
+          $slug = new Slugify();
+          $photo = UploadedFile::getInstance($model, 'photo');
+          if(!empty($photo)) {
+             $path = Yii::getAlias('@uploadsroot');
+             $fileName = $slug->slugify($model->person) . '.' . $photo->extension;
+             $photo->saveAs($path . '/team/' . $fileName);
+             $model->photo = $fileName;
+          }else{
+             $model->photo = $oldPhoto;
+          }
           if($model->save()){
              ModelStatus::setNotifySuccesSaved();
              return $this->redirect(['index']);
           }else{
              ModelStatus::setNotifyErrorSaved();
           }
-
        }
-
         return $this->render('update', [
             'model' => $model,
         ]);

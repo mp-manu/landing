@@ -17,16 +17,16 @@ ul li:hover .wm-event-featured-text h5 a,.wm-modren-color figcaption a.wm-course
 .wm-header-three .wm-stripinfo li i,.wm-header-three .wm-login-section li a i,.wm-search-btn,.wm-header-three .navbar-nav > li:hover > a,
 .wm-header-three .wm-megalist li:hover a,.wm-header-three .wm-dropdown-menu > li:hover > a,.wm-header-three .navbar-nav > li:hover > a,.wm-eventmedium-text time i,
 .wm-event-featured-text time i,.wm-contact-main-color .contact-social-icon li:hover i {
-	color: #ffb400;
+	color: #DDB104;
 }
 
 .wm-header-number,.wm-header-number:after,.wm-header-three .navbar-nav > li > a:before,.wm-caption-three h1:before,.wm-footer-three .wm-footer-widget-title h2:before,
 .wm-hover-link:before,.wm-fancy-title-three span:before,.wm-courses-medium figure span,.wm-courses-grid figure span,.wm-courses-grid figure figcaption:before,.wm-linkhover:before,
 .wm-modren-color figcaption:before,.wm-blog-grid figure figcaption:before,.wm-subscribe-color.wm-subscribe-form h2:before {
-	background-color: #ffb400;
+	background-color: #DDB104;
 }
 .widget_contact_list ul li.wm-social-btn:hover a,.courses-options {
-	border-color: #ffb400;
+	border-color: #DDB104;
 }
 .wm-recent-list-slider .slick-arrow:hover,.wm-testimonial-navslider .slick-arrow:hover,.wm-partners-slider-two .slick-arrow:hover {
 	box-shadow: 0px 0px 0px 2px #3498db inset;

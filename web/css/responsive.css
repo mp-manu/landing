@@ -178,6 +178,6 @@
 	.wm-banner-one-nav-layer { padding: 42px 70px 42px 70px; }
 }
 @media screen and (min-width: 1500px) and (max-width: 1820px) {
-	.wm-questions-studying img { display: none; }
+	/*.wm-questions-studying img { display: none; }*/
 	.wm-banner-one-nav-layer { padding: 74px 70px 74px 70px; }
 }

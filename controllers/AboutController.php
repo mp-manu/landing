@@ -16,7 +16,7 @@ use app\models\Programme;
 use app\models\Project;
 use app\models\Team;
 use app\models\Topic;
-use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\web\Controller;
 
 class AboutController extends Controller
@@ -44,17 +44,29 @@ class AboutController extends Controller
             'fund' => $fund,
             'programm' => $programm,
             'topic' => $topic,
-            'project' => $project
+            'project' => $project,
+            'partners_and_partipipants' => $partners_and_partipipants
         ]);
     }
 
 
     public function actionTeam(){
+
         $team = Team::find()->where(['status' => 1])->asArray()->all();
 
+
         return $this->render('team', [
-            'team' => $team
+            'teams' => $team
         ]);
+    }
+
+    public function actionPerson($id){
+       $this->layout = 'main-pages';
+       $id = Html::encode($id);
+       $data = Team::find()->where(['id' => $id, 'status' => 1])->asArray()->one();
+       return $this->render('person', [
+           'data' => $data
+       ]);
     }
 
 }

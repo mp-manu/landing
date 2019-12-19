@@ -43,10 +43,20 @@ MainAsset::register($this);
             <div class="row">
                 <div class="col-md-12">
                     <div class="wm-mini-title">
-                        <h1>Our Courses</h1>
+                       <?php if (!Yii::$app->controller->action->id == 'new-market'): ?>
+                           <h1><?= substr($this->title, 0, 51) . '...' ?></h1>
+                       <?php else: ?>
+                           <h1><?= substr($this->title, 0, 51) ?></h1>
+                       <?php endif; ?>
                     </div>
                     <div class="wm-breadcrumb">
-                        <?= Breadcrumbs::widget() ?>
+                       <?= Breadcrumbs::widget([
+                           'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                           'tag' => 'ul',
+                           'options' => ['class' => ''],
+                          //'itemTemplate' => '<li>{link}&nbsp;',
+                           'homeLink' => ['label' => 'Home', 'url' => '/'],
+                       ]) ?>
                     </div>
                 </div>
             </div>

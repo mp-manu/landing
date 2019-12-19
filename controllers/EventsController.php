@@ -10,24 +10,32 @@ namespace app\controllers;
 
 
 use app\models\Events;
+use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\web\Controller;
 
 class EventsController extends Controller
 {
+   public function actionList(){
+      $this->layout = 'main-pages';
+      $query = Events::find()
+          ->select(['e.*'])
+          ->from('events e')
+          ->where(['e.status' => 1])->orderBy('e.id DESC');
+      $pages = new Pagination([
+          'totalCount' => $query->count(),
+          'pageSize' => 8,
+          'forcePageParam' => false,
+          'pageSizeParam' => false
+      ]);
+      $events = $query->offset($pages->offset)->limit($pages->limit)->all();
+      return $this->render('list', ['pages' => $pages, 'events' => $events]);
+   }
 
-    public function actionList(){
-
-        $list = Events::find()->where(['status' => 1])->asArray()->one();
-
-        $this->render('list', ['list' => $list]);
-    }
-
-    public function actionRead($id){
-        $id = Html::encode($id);
-
-        $event = Events::find()->where(['status' => 1, 'id' => $id])->asArray()->all();
-
-        return $this->render('read', ['event' => $event]);
-    }
+   public function actionRead($id){
+      $id = Html::encode($id);
+      $this->layout = 'main-pages';
+      $events = Events::find()->where(['status' => 1, 'id' => $id])->asArray()->one();
+      return $this->render('read', ['event' => $events]);
+   }
 }

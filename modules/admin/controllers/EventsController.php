@@ -78,7 +78,7 @@ class EventsController extends Controller
          $model->date_to = $e[2].'-'.$e[0].'-'.$e[1];
          $slug = new Slugify();
          $photo = UploadedFile::getInstance($model, 'photo');
-         if (!empty($photo)) {
+         if(!empty($photo)) {
             $path = Yii::getAlias('@uploadsroot');
             $fileName = $slug->slugify($model->title) . '.' . $photo->extension;
             $photo->saveAs($path . '/events/' . $fileName);
@@ -86,7 +86,7 @@ class EventsController extends Controller
          }
          ModelStatus::setTimeStampCreate($model);
          ModelStatus::setTimeStampUpdate($model);
-         if ($model->save()) {
+         if($model->save()){
             ModelStatus::setNotifySuccesSaved();
             return $this->redirect(['index']);
          } else {

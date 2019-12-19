@@ -7,7 +7,9 @@
  */
 
 namespace app\controllers;
-
+use app\models\Publication;
+use yii\data\Pagination;
+use yii\helpers\Html;
 
 use yii\web\Controller;
 
@@ -15,9 +17,20 @@ class PublicationController extends Controller
 {
     public function actionList(){
         $this->layout = 'main-pages';
-        $list = Publication::find()->where(['status' => 1])->asArray()->all();
+       $query = Publication::find()
+           ->select(['p.*'])
+           ->from('publication p')
+           ->where(['p.status' => 1])->orderBy('p.id DESC');
+       $pages = new Pagination([
+           'totalCount' => $query->count(),
+           'pageSize' => 8,
+           'forcePageParam' => false,
+           'pageSizeParam' => false
+       ]);
 
-        return $this->render('list', ['list' => $list]);
+       $publications = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+        return $this->render('list', ['pages' => $pages, 'publications' => $publications]);
     }
 
     public function actionRead($id){
