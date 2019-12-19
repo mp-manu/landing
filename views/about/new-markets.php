@@ -7,61 +7,72 @@
  */
 $this->title = $project['title'];
 //$this->params['breadcrumbs'][] = ['label' => 'Home', 'url' => ['/']];
-$this->params['breadcrumbs'][] = substr($this->title, 0, 51).'...';
+$this->params['breadcrumbs'][] = substr($this->title, 0, 51) . '...';
 ?>
 <div class="row">
     <div class="col-md-9">
         <h2><?= $project['title'] ?></h2>
         <div class="wm-our-course-detail">
-            <div class="wm-title-full">
-                <h2>Project description</h2>
-            </div>
-            <p class="wm-text">
-                <?= $project['description'] ?>
-            </p>
-            <div class="wm-courses-info">
+            <?php if (!empty($project['description'])): ?>
                 <div class="wm-title-full">
-                    <h2>Project Objective</h2>
+                    <h2>Project description</h2>
                 </div>
+                <p class="wm-text">
+                    <?= $project['description'] ?>
+                </p>
+            <?php endif; ?>
+            <?php if (!empty($project['objective'])): ?>
+                <div class="wm-courses-info">
+                    <div class="wm-title-full">
+                        <h2>Project Objective</h2>
+                    </div>
                     <?= $project['objective'] ?>
-            </div>
-            <div class="wm-courses-info">
-                <div class="wm-title-full">
-                    <h2>Programme(s)</h2>
                 </div>
-                <?php foreach ($programm as $item): ?>
-                    <?= $item['name'].'<br>' ?>
-                <?php endforeach; ?>
-            </div>
-            <div class="wm-courses-info">
-                <div class="wm-title-full">
-                    <h2>Topic(s)</h2>
+            <?php endif; ?>
+            <?php if (!empty($programm)): ?>
+                <div class="wm-courses-info">
+                    <div class="wm-title-full">
+                        <h2>Programme(s)</h2>
+                    </div>
+                    <?php foreach ($programm as $item): ?>
+                        <?= $item['name'] . '<br>' ?>
+                    <?php endforeach; ?>
                 </div>
-                <?php foreach ($topic as $item): ?>
-                    <?= $item['name'].'<br>' ?>
-                <?php endforeach; ?>
-            </div>
-            <div class="wm-courses-info">
-                <div class="wm-title-full">
-                    <h2>Call for Proposal</h2>
+            <?php endif; ?>
+            <?php if(!empty($topic)): ?>
+                <div class="wm-courses-info">
+                    <div class="wm-title-full">
+                        <h2>Topic(s)</h2>
+                    </div>
+                    <?php foreach ($topic as $item): ?>
+                        <?= $item['name'] . '<br>' ?>
+                    <?php endforeach; ?>
                 </div>
-                <?php foreach ($proposals as $item): ?>
-                    <?= $item['name'].'<br>' ?>
-                <?php endforeach; ?>
-            </div>
-            <div class="wm-courses-info">
-                <div class="wm-title-full">
-                    <h2>Funding Scheme</h2>
+            <?php endif; ?>
+            <?php if (!empty($proposals)): ?>
+                <div class="wm-courses-info">
+                    <div class="wm-title-full">
+                        <h2>Call for Proposal</h2>
+                    </div>
+                    <?php foreach ($proposals as $item): ?>
+                        <?= $item['name'] . '<br>' ?>
+                    <?php endforeach; ?>
                 </div>
-                <?php foreach ($fund as $item): ?>
-                    <?= $item['title'].'<br>' ?>
-                <?php endforeach; ?>
-            </div>
-
+            <?php endif; ?>
+            <?php if (!empty($fund)): ?>
+                <div class="wm-courses-info">
+                    <div class="wm-title-full">
+                        <h2>Funding Scheme</h2>
+                    </div>
+                    <?php foreach ($fund as $item): ?>
+                        <?= $item['title'] . '<br>' ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <div class="wm-certification-listing">
                 <div class="wm-title-full">
                     <h2>Participants and Partners</h2>
-             
+
 
                 </div>
 
@@ -73,15 +84,17 @@ $this->params['breadcrumbs'][] = substr($this->title, 0, 51).'...';
             <div class="wm-widget-heading">
                 <h4>Project Information</h4>
             </div>
-            <h3><?= $project['title'] ?></h3>
+            <h3 class="text-justify"><?= $project['title'] ?></h3>
+            <img style="margin-left: 20%; margin-bottom: 20px; width: 150px;" src="<?= Yii::getAlias('@upload').'/logo/euflag.png' ?>" />
             <ul>
                 <li>
                     <a href="#">Grant Agreement ID: <strong><?= $project['grant_agreement_id'] ?></strong></a>
                 </li>
-                <li >
+                <li>
                     <a href="#">
                         Coordinated by: <br><strong>DUBLIN CITY UNIVERSITY</strong>
-                        <br><p class="flag-icon flag-icon-ie"></p> Ireland
+                        <br>
+                        <p class="flag-icon flag-icon-ie"></p> Ireland
                     </a>
                 </li>
             </ul>

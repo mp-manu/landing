@@ -2099,14 +2099,10 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
     border-bottom: none;
     box-shadow: 0px 0px 0px 3px #f7f7f7 inset;
     text-align: center;
-    padding: 95px 37px 100px 37px;
+    padding: 20px 37px 50px 37px;
     position: relative;
 }
-.wm-questions-studying img {
-    position: absolute;
-    left: 100%;
-    top: -24px;
-}
+
 .wm-questions-studying h3                   { margin-bottom: 21px; }
 .wm-questions-studying p                    { margin-bottom: 52px; }
 .wm-questions-studying .wm-banner-btn       { padding: 9px 21px 9px; }
@@ -3134,11 +3130,10 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-partners-slider a,.wm-partners-slider-two a           { text-align: center; }
 .wm-partners-slider img,.wm-partners-slider-two img {
     display: inline-block;
-    opacity: 0.1;
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-    filter: gray; 
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    /*filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");*/
+    /*filter: gray; */
+    /*-webkit-filter: grayscale(100%);*/
+    /*filter: grayscale(100%);*/
 }
 .wm-partners-slider .wm-partners-layer:hover img,.wm-partners-slider-two .wm-partners-layer:hover img {
     opacity: 1;
@@ -10262,4 +10257,14 @@ figure:hover .wm-hover-link i           { top: 50%; }
 
 .menu-item{
     font-family: 'Merriweather', serif;
+}
+
+.widget-title{
+    position: relative;
+    margin-bottom: 30px;
+    border-left: 3px solid transparent;
+    background: #f5f5f5;
+    padding: 10px 10px 10px 20px;
+    font-size: 18px;
+    border-left: solid 3px #003399;
 }

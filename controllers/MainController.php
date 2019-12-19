@@ -2,8 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Project;
+use app\models\Publication;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -37,7 +40,7 @@ class MainController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-                'layout' => 'main-pages',
+                'layout' => 'main-without-sidebar',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -46,15 +49,12 @@ class MainController extends Controller
         ];
     }
 
-
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
-        return $this->render('index');
+        $project = Project::find()->where(['status' => 1])->asArray()->one();
+        return $this->render('index', [
+            'project' => $project
+        ]);
     }
 
     /**
@@ -78,6 +78,9 @@ class MainController extends Controller
             'model' => $model,
         ]);
     }
+
+
+
 
     /**
      * Logout action.

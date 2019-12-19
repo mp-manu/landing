@@ -22,7 +22,6 @@ class Partners extends Widget
 
         $this->data = Coordinator::find()
             ->where(['status' => 1])
-            ->andWhere(['!=', 'type', 'Coordinator'])
             ->asArray()->all();
     }
 

@@ -14,6 +14,7 @@ use app\models\Coordinator;
 use app\models\FundingScheme;
 use app\models\Programme;
 use app\models\Project;
+use app\models\Team;
 use app\models\Topic;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -26,11 +27,11 @@ class AboutController extends Controller
         $project = Project::find()->where(['status' => 1])->asArray()->one();
 
         if(!empty($project)){
-            $coordinators = Coordinator::find()->where(['project_id' => $project['id']])->asArray()->all();
-            $proposals = CallForProposal::find()->where(['id' => $project['id']])->asArray()->all();
-            $fund = FundingScheme::find()->where(['project_id' => $project['id']])->asArray()->all();
-            $programm = Programme::find()->where(['project_id' => $project['id']])->asArray()->all();
-            $topic = Topic::find()->where(['project_id' => $project['id']])->asArray()->all();
+            $coordinators = Coordinator::find()->where(['project_id' => $project['id'], 'status' => 1])->asArray()->all();
+            $proposals = CallForProposal::find()->where(['id' => $project['id'], 'status' => 1])->asArray()->all();
+            $fund = FundingScheme::find()->where(['project_id' => $project['id'], 'status' => 1])->asArray()->all();
+            $programm = Programme::find()->where(['project_id' => $project['id'], 'status' => 1])->asArray()->all();
+            $topic = Topic::find()->where(['project_id' => $project['id'], 'status' => 1])->asArray()->all();
             $partners_and_partipipants = array();
             foreach ($coordinators as $coordinator){
                 $partners_and_partipipants[$coordinator['type']][] = $coordinator;
@@ -44,6 +45,15 @@ class AboutController extends Controller
             'programm' => $programm,
             'topic' => $topic,
             'project' => $project
+        ]);
+    }
+
+
+    public function actionTeam(){
+        $team = Team::find()->where(['status' => 1])->asArray()->all();
+
+        return $this->render('team', [
+            'team' => $team
         ]);
     }
 

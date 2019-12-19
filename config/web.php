@@ -105,6 +105,7 @@ $config = [
         'class' => yii2mod\rbac\filters\AccessControl::className(),
         'allowActions' => [
             'main/*',
+            'about/*',
             'admin/main/login',
         ]
     ],

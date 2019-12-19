@@ -31,7 +31,7 @@ class Participant extends Widget
 
    public function run()
    {
-      return $this->render('partners', [
+      return $this->render('participants', [
           'data' => $this->data
       ]);
    }

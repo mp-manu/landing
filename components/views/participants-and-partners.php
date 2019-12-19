@@ -12,10 +12,13 @@ if(!empty($data)):
     <div class="wm-footer-widget-title"> <h5>Our Participants and Partners</h5> </div>
     <ul class="gallery">
         <?php foreach ($data as $item): ?>
-        <li><a title="" data-rel="prettyPhoto[gallery1]" href="<?= Yii::getAlias('@upload').'/logo/'.$item['logo'] ?>">
-                <img src="<?= Yii::getAlias('@upload').'/logo/'.$item['logo'] ?>" alt="">
+        <?php if(!empty($item['logo'])): ?>
+        <li>
+            <a title="" data-rel="prettyPhoto[gallery1]" href="<?= Yii::getAlias('@upload').'/logo/'.$item['logo'] ?>">
+                <img src="<?= Yii::getAlias('@upload').'/logo/'.$item['logo'] ?>" alt="<?= $item['logo'] ?>">
             </a>
         </li>
+        <?php endif; ?>
         <?php  endforeach;  ?>
     </ul>
 </aside>

@@ -49,7 +49,7 @@ use app\widgets\SiteMenu;
    <div class="wm-main-header">
       <div class="container">
          <div class="row">
-            <div class="col-md-3"><a href="/" class="wm-logo"><img src="images/logo-1.png" alt=""></a></div>
+<!--            <div class="col-md-3"><a href="/" class="wm-logo"><img src="images/logo-1.png" alt=""></a></div>-->
             <div class="col-md-9">
                <!--// Navigation \\-->
                <nav class="navbar navbar-default">
