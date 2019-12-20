@@ -19,19 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
           <?php foreach ($publications as $item): ?>
          <li class="col-md-12">
             <div class="wm-shop-grid">
-               <figure>
-                  <div class="wm-grid-tittle">
-                     <a href="/publication/read?id=<?= $item['id'] ?>" title="read more" target="_blank">
-                        <?= $item['author'] ?>
-                     </a>
-                  </div>
-               </figure>
-               <div class="wm-grid-info">
-                  <h6><a href="/publication/read?id=<?= $item['id'] ?>" title="read more" target="_blank"><?= $item['title'] ?></a></h6>
+               <div class="wm-futurecourse" style="margin: 10px 0px 0px 10px">
+                  <h2><a href="/publication/read?id=<?= $item['id'] ?>" title="read more" target="_blank"><?= $item['title'] ?></a></h2>
                   <p>
                      <?= substr($item['title'], 0, 300) ?>
                   </p>
-                  <div class="wm-cart-button">
+                  <div class="wm-cart-button" style="margin: 20px">
                      <a href="/publication/read?id=<?= $item['id'] ?>" title="read more" target="_blank">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                         <span>Read More</span>

@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use app\assets\MainAsset;
+use app\components\SidebarPublications;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 use yii\widgets\Breadcrumbs;
@@ -70,52 +71,9 @@ MainAsset::register($this);
             <div class="container">
                 <div class="row">
                     <aside class="col-md-3">
-                        <div class="widget widget_futurecourse">
-                            <div class="wm-widget-title">
-                                <h2>Events</h2>
-                            </div>
-                            <ul>
-                                <li>
-                                    <figure>
-                                        <a href="#">
-                                            <img alt="" src="/extra-images/blog-widget-1.jpg">
-                                        </a>
-                                    </figure>
-                                    <div class="wm-futurecourse">
-                                        <div class="wm-futurecourse-info">
-                                            <h4>
-                                                <a href="#">Transdisciplinary Design</a>
-                                            </h4>
-                                            <small>$59.00</small>
-                                            <span>$39.00</span>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#"><i class="wmicon-social7" aria-hidden="true"></i>309</a></li>
-                                            <li><a href="#"><i class="wmicon-social6" aria-hidden="true"></i>19 </a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="widget widget_latestnews">
-                            <div class="wm-widget-title">
-                                <h2>Latest News</h2>
-                            </div>
-                            <ul>
-                                <li>
-                                    <figure>
-                                        <a href="#"><img src="/extra-images/widget-latestnews-1.jpg" alt=""></a>
-                                    </figure>
-                                    <div class="wm-latestnews">
-                                        <h5><a href="#">Reality check for all openings</a></h5>
-                                        <p>The open and distance learning vision of...</p>
-                                        <time datetime="2008-02-14 20:00">6/4/2016</time>
-                                        <a href="#"><i class="wmicon-social"></i>21</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <?= SidebarPublications::widget() ?>
+                        <?= \app\components\SidebarLatestNews::widget() ?>
+                        <?= \app\components\SidebarEvents::widget() ?>
                     </aside>
                     <div class="col-md-9">
                         <?= $content ?>

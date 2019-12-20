@@ -10,20 +10,36 @@ namespace app\controllers;
 
 
 use app\models\News;
+use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\web\Controller;
 
 class NewsController extends Controller
 {
-    public function actionList(){
-        $news = News::find()->where(['status' => 1])->asArray()->all();
-        $this->render('list', ['list' => $news]);
+    public function actionList()
+    {
+        $this->layout = 'main-pages';
+        $query = News::find()
+            ->select(['n.*'])
+            ->from('news n')
+            ->where(['n.status' => 1])->orderBy('n.id DESC');
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => 5,
+            'forcePageParam' => false,
+            'pageSizeParam' => false
+        ]);
+        $news = $query->offset($pages->offset)->limit($pages->limit)->all();
+        return $this->render('list', ['news' => $news, 'pages' => $pages]);
     }
 
-    public function actionRead($id){
+    public function actionRead($id)
+    {
+        $this->layout = 'main-pages';
         $id = Html::encode($id);
         $news = News::find()->where(['status' => 1, 'id' => $id])->asArray()->one();
-        $this->render('list', ['news' => $news]);
+        return $this->render('read', ['news' => $news]);
     }
+
 
 }

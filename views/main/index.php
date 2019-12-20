@@ -34,42 +34,7 @@ $this->title = 'Home Page';
 </div>
 
 <?php endif; ?>
-<!--// Main Section \\-->
-<div class="wm-main-section wm-service-slider-full">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="wm-service-slider">
-                    <div class="wm-service-layer">
-                        <ul class="row">
-                            <li class="col-md-3">
-                                <i class="wmicon-search"></i>
-                                <span>Tuba-Euphonium</span>
-                                <p>Designed to give a comprehensive education in performance.</p>
-                            </li>
-                            <li class="col-md-3">
-                                <i class="wmicon-music7"></i>
-                                <span>percussion</span>
-                                <p>This coursr provides you the ideal undergraduate training.</p>
-                            </li>
-                            <li class="col-md-3">
-                                <i class="wmicon-music6"></i>
-                                <span>Trumpet</span>
-                                <p>Designed to provide undergraduate trumpeters with an education.</p>
-                            </li>
-                            <li class="col-md-3">
-                                <i class="wmicon-music5"></i>
-                                <span>Saxophone</span>
-                                <p>Comprehensive program saxophone performance and pedagogy.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--// Main Section \\-->
+
 
 
 <!--// Main Section \\-->

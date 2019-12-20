@@ -17,9 +17,9 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <form>
+               <form action="/" method="post">
                   <i class="wmicon-interface2"></i>
-                  <input type="text" value="Enter your e-mail address" onblur="if(this.value == '') { this.value ='Enter your e-mail address'; }" onfocus="if(this.value =='Enter your e-mail address') { this.value = ''; }">
+                  <input type="text" name="subcribe_email" value="Enter your e-mail address" onblur="if(this.value == '') { this.value ='Enter your e-mail address'; }" onfocus="if(this.value =='Enter your e-mail address') { this.value = ''; }">
                   <input type="submit" value="Subscribe to our newsletter">
                </form>
             </div>
@@ -33,7 +33,7 @@
       <div class="container">
          <div class="row">
             <aside class="widget widget_contact_info col-md-3">
-               <a href="/" class="wm-footer-logo"><img src="/images/logo-1.png" alt=""></a>
+<!--               <a href="/" class="wm-footer-logo"><img src="/images/logo-1.png" alt=""></a>-->
                <ul>
                   <li><i class="wm-color wmicon-pin"></i> <?= Yii::$app->params['contact']['address'] ?></li>
                   <li><i class="wm-color wmicon-phone"></i> <?= Yii::$app->params['contact']['tel'] ?></li>

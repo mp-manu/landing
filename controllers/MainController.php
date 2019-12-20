@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Project;
 
+use app\models\UserMessages;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Html;
@@ -99,17 +100,34 @@ class MainController extends Controller
      *
      * @return Response|string
      */
-//    public function actionContact()
-//    {
+    public function actionContact()
+    {
+        $this->layout = 'main-without-sidebar';
 //        $model = new ContactForm();
 //        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
 //            Yii::$app->session->setFlash('contactFormSubmitted');
 //
 //            return $this->refresh();
 //        }
-//        return $this->render('contact', [
-//            'model' => $model,
-//        ]);
-//    }
+        if(!empty($_POST['submit'])){
+            $umessage = new UserMessages();
+            $umessage->name = Html::encode($_POST['name']);
+            $umessage->email = Html::encode($_POST['email']);
+            $umessage->phone = Html::encode($_POST['phone']);
+            $umessage->message = Html::encode($_POST['message']);
+            $umessage->status = 0;
+            if($umessage->save()){
+                Yii::$app->session->setFlash('contactFormSubmitted', 'Message was successfully sent!');
+                return $this->refresh();
+            }
+        }
+        return $this->render('contact');
+    }
+
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
 
 }

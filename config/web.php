@@ -106,6 +106,9 @@ $config = [
         'allowActions' => [
             'main/*',
             'about/*',
+            'news/*',
+            'publication/*',
+            'events/*',
             'admin/main/login',
         ]
     ],

@@ -16,26 +16,29 @@ use yii\web\Controller;
 
 class EventsController extends Controller
 {
-   public function actionList(){
-      $this->layout = 'main-pages';
-      $query = Events::find()
-          ->select(['e.*'])
-          ->from('events e')
-          ->where(['e.status' => 1])->orderBy('e.id DESC');
-      $pages = new Pagination([
-          'totalCount' => $query->count(),
-          'pageSize' => 8,
-          'forcePageParam' => false,
-          'pageSizeParam' => false
-      ]);
-      $events = $query->offset($pages->offset)->limit($pages->limit)->all();
-      return $this->render('list', ['pages' => $pages, 'events' => $events]);
-   }
+    public function actionList()
+    {
+        $this->layout = 'main-pages';
+        $query = Events::find()
+            ->select(['e.*'])
+            ->from('events e')
+            ->where(['e.status' => 1])->orderBy('e.id DESC');
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => 8,
+            'forcePageParam' => false,
+            'pageSizeParam' => false
+        ]);
+        $events = $query->offset($pages->offset)->limit($pages->limit)->all();
+        return $this->render('list', ['pages' => $pages, 'events' => $events]);
+    }
 
-   public function actionRead($id){
-      $id = Html::encode($id);
-      $this->layout = 'main-pages';
-      $events = Events::find()->where(['status' => 1, 'id' => $id])->asArray()->one();
-      return $this->render('read', ['event' => $events]);
-   }
+    public function actionRead($id)
+    {
+        $this->layout = 'main-without-sidebar';
+        $id = Html::encode($id);
+
+        $events = Events::find()->where(['status' => 1, 'id' => $id])->asArray()->one();
+        return $this->render('read', ['event' => $events]);
+    }
 }
