@@ -32,6 +32,7 @@
    <div class="wm-footer-widget">
       <div class="container">
          <div class="row">
+             <?php if(!empty(Yii::$app->params['contact'])): ?>
             <aside class="widget widget_contact_info col-md-3">
 <!--               <a href="/" class="wm-footer-logo"><img src="/images/logo-1.png" alt=""></a>-->
                <ul>
@@ -46,6 +47,8 @@
                   <a href="<?= Yii::$app->params['contact']['vimeo'] ?>" class="wmicon-vimeo"></a>
                </div>
             </aside>
+             <?php endif;
+             ?>
             <aside class="widget widget_archive col-md-3">
                <div class="wm-footer-widget-title"> <h5>Quick Links</h5> </div>
                <ul>

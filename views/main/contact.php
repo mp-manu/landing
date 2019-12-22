@@ -71,18 +71,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="wm-main-section wm-contact-full wm-contact-full-inner">
     <div class="container">
         <div class="row">
-
             <div class="col-md-12">
-
                 <div class="wm-contact-tab">
-
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#home" aria-controls="home" data-toggle="tab">Contact Us</a></li>
                         <li><a href="#profile" aria-controls="profile" data-toggle="tab">Information Details</a></li>
-
                     </ul>
-
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
@@ -118,6 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                         </div>
+                       <?php if(!empty(Yii::$app->params['contact'])): ?>
                         <div class="tab-pane" id="profile">
                             <span class="wm-contact-title">Contact Info</span>
                             <div class="wm-contact-service">
@@ -151,12 +147,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <li><a href="<?= Yii::$app->params['contact']['vimeo'] ?>"><i class="wm-color wmicon-vimeo"></i> Vimeo</a></li>
                             </ul>
                         </div>
+                        <?php endif; ?>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>

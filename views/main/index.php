@@ -51,7 +51,7 @@ $this->title = 'Home Page';
 <!--// Main Section \\-->
 <?= LatestNews::widget() ?>
 <!--// Main Section \\-->
-
+<?php if(!empty(Yii::$app->params['contact'])): ?>
 <!--// Main Section \\-->
 <div class="wm-main-section wm-contact-service-two-full">
     <div class="container">
@@ -82,8 +82,7 @@ $this->title = 'Home Page';
                 </div>
                 <ul class="contact-social-icon">
                     <li>
-                        <a href="<?= Yii::$app->params['contact']['facebook'] ?>"><i
-                                    class="wm-color wmicon-social5"></i>
+                        <a href="<?= Yii::$app->params['contact']['facebook'] ?>"><i class="wm-color wmicon-social5"></i>
                             Facebook
                         </a>
                     </li>
@@ -100,10 +99,12 @@ $this->title = 'Home Page';
                     <li>
                         <a href="<?= Yii::$app->params['contact']['vimeo'] ?>">
                             <i class="wm-color wmicon-vimeo"></i> Vimeo
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<?php endif; ?>
 <!--// Main Section \\-->

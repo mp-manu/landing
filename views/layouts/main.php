@@ -42,9 +42,7 @@ MainAsset::register($this);
 
     <!--// Main Content \\-->
     <div class="wm-main-content">
-
         <?= $content ?>
-
     </div>
     <!--// Main Content \\-->
 
