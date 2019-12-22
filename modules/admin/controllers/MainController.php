@@ -16,6 +16,7 @@ use app\models\Profiles;
 use app\models\ResetPasswordForm;
 use app\models\SendEmailForm;
 use app\models\Subcribers;
+use app\models\UserMessages;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -81,12 +82,10 @@ class MainController extends Controller
     }
 
     public function actionIndex(){
-//        $data = Comment::find()
-//            ->select('comment.*, blog.title as title')
-//            ->innerJoin('blog', 'comment.blog_id = blog.id')
-//            ->orderBy('created_at DESC')
-//            ->asArray()
-//            ->all();
+        $data = UserMessages::find()
+            ->orderBy('id DESC')
+            ->asArray()
+            ->all();
         return $this->render('index', [
             'data' => $data
         ]);
@@ -119,16 +118,16 @@ class MainController extends Controller
 
        $model = new User();
        $profile = User::find()->where(['user_id' => Yii::$app->user->id])->asArray()->one();
-       $about_me = AboutMe::find()->where(['status' => 1])->asArray()->one();
-       $contacts = Contact::find()->where(['status' => 1])->asArray()->one();
-       $socials = Profiles::find()->where(['status' => 1])->asArray()->all();
+//       $about_me = AboutMe::find()->where(['status' => 1])->asArray()->one();
+//       $contacts = Contact::find()->where(['status' => 1])->asArray()->one();
+//       $socials = Profiles::find()->where(['status' => 1])->asArray()->all();
 
        return $this->render('profile', [
            'profile' => $profile,
-           'about_me' => $about_me,
-           'contacts' => $contacts,
            'model' => $model,
-           'socials' => $socials
+//           'socials' => $socials,
+//           'about_me' => $about_me,
+//           'contacts' => $contacts
        ]);
     }
 

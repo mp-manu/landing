@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = substr($this->title, 0, 51) . '...';
                                       <div class="col-md-4">
                                           <strong>Address:</strong> <?= $item['address'] ?><br>
                                           <span class="flag-icon flag-icon-<?= $item['country_flag'] ?>"
-                                                title="<?= $item['flag_icon'] ?>"></span> <?= $item['country'] ?>
+                                                title="<?= $item['country_flag'] ?>"></span> <?= $item['country'] ?>
                                           <br><br>
                                           <a href="<?= $item['web_site'] ?>" style="color: #0b58a2; font-size: 14px"
                                              target="_blank"><i class="fa fa-link"></i> Web site</a>
@@ -141,7 +141,7 @@ $this->params['breadcrumbs'][] = substr($this->title, 0, 51) . '...';
                                       <div class="col-md-4">
                                           <strong>Address:</strong> <?= $item2['address'] ?><br>
                                           <span class="flag-icon flag-icon-<?= $item2['country_flag'] ?>"
-                                                title="<?= $item2['flag_icon'] ?>"></span> <?= $item2['country'] ?>
+                                                title="<?= $item2['country_flag'] ?>"></span> <?= $item2['country'] ?>
                                           <br><br>
                                           <a href="<?= $item2['web_site'] ?>" style="color: #0b58a2; font-size: 14px"
                                              target="_blank"><i class="fa fa-link"></i> Web site</a>
@@ -188,7 +188,7 @@ $this->params['breadcrumbs'][] = substr($this->title, 0, 51) . '...';
                                       <div class="col-md-4">
                                           <strong>Address:</strong> <?= $item3['address'] ?><br>
                                           <span class="flag-icon flag-icon-<?= $item3['country_flag'] ?>"
-                                                title="<?= $item3['flag_icon'] ?>"></span> <?= $item3['country'] ?>
+                                                title="<?= $item3['country_flag'] ?>"></span> <?= $item3['country'] ?>
                                           <br><br>
                                           <a href="<?= $item3['web_site'] ?>" style="color: #0b58a2; font-size: 14px"
                                              target="_blank"><i class="fa fa-link"></i> Web site</a>
@@ -199,10 +199,10 @@ $this->params['breadcrumbs'][] = substr($this->title, 0, 51) . '...';
                                           <a href="<?= $item3['org_contact'] ?>" style="color: #0b58a2; font-size: 14px"
                                              target="_blank"><i class="fa fa-link"></i> Contact the organisation</a>
                                       </div>
-                                      <div class="col-md-4">
-                                          <strong>EU Contribution</strong><br>
-                                          <span>€ <?= $item3['eu_contribution'] ?></span><br>
-                                      </div>
+<!--                                      <div class="col-md-4">-->
+<!--                                          <strong>EU Contribution</strong><br>-->
+<!--                                          <span>€ --><?//= $item3['eu_contribution'] ?><!--</span><br>-->
+<!--                                      </div>-->
                                   </div>
                               </div>
                           </div>
