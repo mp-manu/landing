@@ -19,6 +19,19 @@ class MainAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+
+    public function init()
+    {
+        parent::init();
+        // resetting BootstrapAsset to not load own css files
+        \Yii::$app->assetManager->bundles['yii\bootstrap\BootstrapPluginAsset'] = [
+            'js' => []
+        ];
+        \Yii::$app->assetManager->bundles['yii\bootstrap\BootstrapAsset'] = [
+            'css' => []
+        ];
+    }
+
     public $css = [
       //Css Files
       'css/bootstrap.css',

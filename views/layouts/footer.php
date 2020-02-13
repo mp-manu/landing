@@ -74,13 +74,10 @@
             <div class="col-md-6">
                 <p class="pull-left">© <?= date('Y') ?>, All Right Reserved</p>
             </div>
-
                 <span style="float: right"><h6>Developed by <a href="http://uniwork-it.de" target="_blank">UNIWORK IT</a></h6></span>
-
          </div>
       </div>
    </div>
    <!--// FooterCopyRight \\-->
-
 </footer>
 <!--// Footer \\-->
