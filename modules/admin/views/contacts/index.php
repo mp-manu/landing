@@ -12,9 +12,7 @@ $this->title = 'Contacts';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contacts-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
        <?= Html::a('Create Contacts', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -61,7 +59,6 @@ $this->params['breadcrumbs'][] = $this->title;
                    ['class' => 'yii\grid\ActionColumn'],
                ],
            ]); ?>
-
         </div>
     </div>
 </div>

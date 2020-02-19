@@ -14,10 +14,10 @@ $this->title = 'About Team';
            <?php
            $univers = 'univers';
            foreach ($teams as $team) {
-              if($univers != $team['university']){
+              if(trim($univers) != trim($team['university'])){
                  echo '<h2>' . $team['university'] . '</h2>';
               }
-              echo '<li><a href="/about/person?id=' . $team['id'] . '" target="_blank">' . $team['person'] . '</a></li>';
+              echo '<li class="link"><a href="/about/person?id=' . $team['id'] . '" target="_blank">' . $team['person'] . '</a></li>';
               $univers = $team['university'];
            }
            ?>

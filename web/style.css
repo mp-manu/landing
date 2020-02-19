@@ -10268,3 +10268,17 @@ figure:hover .wm-hover-link i           { top: 50%; }
     font-size: 18px;
     border-left: solid 3px #003399;
 }
+.link{
+    text-decoration: underline;
+    color: #003399;
+}
+.link:hover{
+    text-decoration: none;
+    color: #FF8000;
+}
+.link a{
+    color: #003399;
+}
+.link a:hover{
+    color: #FF8000;
+}

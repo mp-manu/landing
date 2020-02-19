@@ -39,7 +39,6 @@ $columns = [
             return '<a href="'.Yii::getAlias('@upload').'/slider/'.$dataProvider->img_url.'"><img src="'.Yii::getAlias('@upload').'/slider/'.$dataProvider->img_url.'" width="200"></a>';
         }
     ],
-
     [
         'class' => 'kartik\grid\EditableColumn',
         'attribute' => 'access',

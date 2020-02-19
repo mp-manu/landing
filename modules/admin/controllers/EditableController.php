@@ -27,6 +27,7 @@ use app\models\Project;
 use app\models\Publication;
 use app\models\Setting;
 use app\models\Team;
+use app\models\University;
 use app\modules\admin\models\BackMenu;
 use app\modules\admin\models\FrontMenu;
 use app\modules\admin\models\Pages;
@@ -90,6 +91,10 @@ class EditableController extends Controller
             'change-posts-status' => [
                 'class' => EditableColumnAction::classname(),
                 'modelClass' => Posts::className(),
+            ],
+            'change-univer-status' => [
+                'class' => EditableColumnAction::classname(),
+                'modelClass' => University::className(),
             ],
         ];
     }
